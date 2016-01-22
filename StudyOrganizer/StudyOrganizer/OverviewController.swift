@@ -8,16 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class OverviewController: UIViewController {
 
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var UniversityLabel: UILabel!
+    @IBOutlet weak var FieldLabel: UILabel!
+    @IBOutlet weak var PictureLabel: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func initializeUser() {
+        
     }
 
 

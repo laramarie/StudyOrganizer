@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8F36E9551C52CABF00E36C14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9541C52CABF00E36C14 /* AppDelegate.swift */; };
-		8F36E9571C52CABF00E36C14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9561C52CABF00E36C14 /* ViewController.swift */; };
 		8F36E95A1C52CABF00E36C14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F36E9581C52CABF00E36C14 /* Main.storyboard */; };
 		8F36E95C1C52CABF00E36C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F36E95B1C52CABF00E36C14 /* Assets.xcassets */; };
 		8F36E95F1C52CABF00E36C14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F36E95D1C52CABF00E36C14 /* LaunchScreen.storyboard */; };
 		8F36E96A1C52CAC000E36C14 /* StudyOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9691C52CAC000E36C14 /* StudyOrganizerTests.swift */; };
+		8F36E9751C52CF7A00E36C14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9741C52CF7A00E36C14 /* User.swift */; };
+		8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9561C52CABF00E36C14 /* OverviewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +29,7 @@
 /* Begin PBXFileReference section */
 		8F36E9511C52CABF00E36C14 /* StudyOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F36E9541C52CABF00E36C14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8F36E9561C52CABF00E36C14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F36E9561C52CABF00E36C14 /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
 		8F36E9591C52CABF00E36C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F36E95B1C52CABF00E36C14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F36E95E1C52CABF00E36C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +37,7 @@
 		8F36E9651C52CAC000E36C14 /* StudyOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F36E9691C52CAC000E36C14 /* StudyOrganizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyOrganizerTests.swift; sourceTree = "<group>"; };
 		8F36E96B1C52CAC000E36C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F36E9741C52CF7A00E36C14 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				8F36E9541C52CABF00E36C14 /* AppDelegate.swift */,
-				8F36E9561C52CABF00E36C14 /* ViewController.swift */,
+				8F36E9561C52CABF00E36C14 /* OverviewController.swift */,
 				8F36E9581C52CABF00E36C14 /* Main.storyboard */,
+				8F36E9741C52CF7A00E36C14 /* User.swift */,
 				8F36E95B1C52CABF00E36C14 /* Assets.xcassets */,
 				8F36E95D1C52CABF00E36C14 /* LaunchScreen.storyboard */,
 				8F36E9601C52CABF00E36C14 /* Info.plist */,
@@ -197,8 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F36E9571C52CABF00E36C14 /* ViewController.swift in Sources */,
+				8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */,
 				8F36E9551C52CABF00E36C14 /* AppDelegate.swift in Sources */,
+				8F36E9751C52CF7A00E36C14 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
