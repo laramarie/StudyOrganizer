@@ -14,6 +14,8 @@
 		8F36E96A1C52CAC000E36C14 /* StudyOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9691C52CAC000E36C14 /* StudyOrganizerTests.swift */; };
 		8F36E9751C52CF7A00E36C14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9741C52CF7A00E36C14 /* User.swift */; };
 		8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9561C52CABF00E36C14 /* OverviewController.swift */; };
+		8F5BD1191C53B035002B5D6B /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BD1181C53B035002B5D6B /* CoursesViewController.swift */; };
+		8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		8F36E9691C52CAC000E36C14 /* StudyOrganizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyOrganizerTests.swift; sourceTree = "<group>"; };
 		8F36E96B1C52CAC000E36C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F36E9741C52CF7A00E36C14 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8F5BD1181C53B035002B5D6B /* CoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				8F36E9541C52CABF00E36C14 /* AppDelegate.swift */,
+				8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */,
 				8F36E9561C52CABF00E36C14 /* OverviewController.swift */,
+				8F5BD1181C53B035002B5D6B /* CoursesViewController.swift */,
 				8F36E9581C52CABF00E36C14 /* Main.storyboard */,
 				8F36E9741C52CF7A00E36C14 /* User.swift */,
 				8F36E95B1C52CABF00E36C14 /* Assets.xcassets */,
@@ -149,6 +155,7 @@
 				TargetAttributes = {
 					8F36E9501C52CABF00E36C14 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = NR8L4HXXW9;
 					};
 					8F36E9641C52CAC000E36C14 = {
 						CreatedOnToolsVersion = 7.2;
@@ -201,6 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */,
+				8F5BD1191C53B035002B5D6B /* CoursesViewController.swift in Sources */,
+				8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */,
 				8F36E9551C52CABF00E36C14 /* AppDelegate.swift in Sources */,
 				8F36E9751C52CF7A00E36C14 /* User.swift in Sources */,
 			);
@@ -329,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = StudyOrganizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.reimer.StudyOrganizer;
@@ -340,6 +350,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = StudyOrganizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.reimer.StudyOrganizer;
@@ -390,6 +401,7 @@
 				8F36E9701C52CAC000E36C14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F36E9711C52CAC000E36C14 /* Build configuration list for PBXNativeTarget "StudyOrganizerTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +410,7 @@
 				8F36E9731C52CAC000E36C14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

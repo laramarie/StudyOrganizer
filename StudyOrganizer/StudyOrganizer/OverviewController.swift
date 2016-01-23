@@ -9,21 +9,47 @@
 import UIKit
 
 class OverviewController: UIViewController {
-
-    @IBOutlet weak var NameLabel: UILabel!
-    @IBOutlet weak var UniversityLabel: UILabel!
-    @IBOutlet weak var FieldLabel: UILabel!
-    @IBOutlet weak var PictureLabel: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var universityLabel: UILabel!
+    @IBOutlet weak var fieldLabel: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
+    
+    var user = User.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        initializeUser()
     }
 
     func initializeUser() {
-        
+        nameLabel.text = user.name
+        universityLabel.text = user.university
+        fieldLabel.text = user.fieldOfStudies
+        userImageView.image = user.image
     }
-
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationViewController = segue.destinationViewController as? ProfileViewController
+            where segue.identifier == "editProfile" {
+                destinationViewController.user = user
+                destinationViewController.delegate = self
+            }
+    }
+    
+    private func updateView() {
+        nameLabel.text = user.name
+        universityLabel.text = user.university
+        fieldLabel.text = user.fieldOfStudies
+        userImageView.image = user.image
+    }
 }
 
+extension OverviewController: SaveProfileDelegate {
+    func didPressSaveProfile(user: User) -> Bool {
+        self.user = user
+        updateView()
+        return true
+    }
+}

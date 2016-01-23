@@ -21,4 +21,11 @@ class User {
         self.fieldOfStudies = fieldOfStudies
         self.image = image
     }
+    
+    init() {
+        name = "Your name"
+        university = "Your university"
+        fieldOfStudies = "Your field of studies"
+        image = UIImage(named: "defaultImage")
+    }
 }
