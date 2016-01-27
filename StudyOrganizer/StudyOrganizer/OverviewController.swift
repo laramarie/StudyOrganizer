@@ -15,19 +15,20 @@ class OverviewController: UIViewController {
     @IBOutlet weak var fieldLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
-    var user = User.init()
+    var user : User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeUser()
-    }
-
-    func initializeUser() {
-        nameLabel.text = user.name
-        universityLabel.text = user.university
-        fieldLabel.text = user.fieldOfStudies
-        userImageView.image = user.image
+        // Load any saved meals, otherwise load sample data.
+        if let savedUser = loadUser() {
+            user = savedUser
+        } else {
+            // Load the sample data.
+            loadSampleUser()
+        }
+        
+        updateView()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -39,16 +40,34 @@ class OverviewController: UIViewController {
     }
     
     private func updateView() {
-        nameLabel.text = user.name
-        universityLabel.text = user.university
-        fieldLabel.text = user.fieldOfStudies
-        userImageView.image = user.image
+        nameLabel.text = user?.name
+        universityLabel.text = user?.university
+        fieldLabel.text = user?.fieldOfStudies
+        userImageView.image = user?.image
+    }
+    
+    // MARK: NSCoding
+    func saveUser() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(user!, toFile: User.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save user...")
+        }
+    }
+    
+    func loadUser() -> User? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(User.ArchiveURL.path!) as? User
+    }
+    
+    func loadSampleUser() {
+        user = User(name: "Your name", university: "Your university", fieldOfStudies: "Your field of studies", image: UIImage(named: "defaultImage")!)
     }
 }
 
 extension OverviewController: SaveProfileDelegate {
     func didPressSaveProfile(user: User) -> Bool {
         self.user = user
+        // Save the user.
+        saveUser()
         updateView()
         return true
     }

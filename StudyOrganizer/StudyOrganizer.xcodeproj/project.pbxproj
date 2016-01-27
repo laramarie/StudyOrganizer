@@ -14,8 +14,11 @@
 		8F36E96A1C52CAC000E36C14 /* StudyOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9691C52CAC000E36C14 /* StudyOrganizerTests.swift */; };
 		8F36E9751C52CF7A00E36C14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9741C52CF7A00E36C14 /* User.swift */; };
 		8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9561C52CABF00E36C14 /* OverviewController.swift */; };
-		8F5BD1191C53B035002B5D6B /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BD1181C53B035002B5D6B /* CoursesViewController.swift */; };
 		8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */; };
+		8FD377281C569C6700811189 /* CoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377271C569C6700811189 /* CoursesTableViewCell.swift */; };
+		8FD3772A1C56A1F400811189 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377291C56A1F400811189 /* Course.swift */; };
+		8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377311C56B8D600811189 /* AddCourseViewController.swift */; };
+		8FE573CB1C56BD5700A04C52 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE573CA1C56BD5700A04C52 /* CoursesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +43,11 @@
 		8F36E9691C52CAC000E36C14 /* StudyOrganizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyOrganizerTests.swift; sourceTree = "<group>"; };
 		8F36E96B1C52CAC000E36C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F36E9741C52CF7A00E36C14 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8F5BD1181C53B035002B5D6B /* CoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8FD377271C569C6700811189 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewCell.swift; sourceTree = "<group>"; };
+		8FD377291C56A1F400811189 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		8FD377311C56B8D600811189 /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
+		8FE573CA1C56BD5700A04C52 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoursesTableViewController.swift; path = ../../../../.Trash/CoursesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +92,11 @@
 				8F36E9541C52CABF00E36C14 /* AppDelegate.swift */,
 				8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */,
 				8F36E9561C52CABF00E36C14 /* OverviewController.swift */,
-				8F5BD1181C53B035002B5D6B /* CoursesViewController.swift */,
+				8FD377311C56B8D600811189 /* AddCourseViewController.swift */,
 				8F36E9581C52CABF00E36C14 /* Main.storyboard */,
+				8FD377291C56A1F400811189 /* Course.swift */,
+				8FE573CA1C56BD5700A04C52 /* CoursesTableViewController.swift */,
+				8FD377271C569C6700811189 /* CoursesTableViewCell.swift */,
 				8F36E9741C52CF7A00E36C14 /* User.swift */,
 				8F36E95B1C52CABF00E36C14 /* Assets.xcassets */,
 				8F36E95D1C52CABF00E36C14 /* LaunchScreen.storyboard */,
@@ -207,8 +216,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD377281C569C6700811189 /* CoursesTableViewCell.swift in Sources */,
+				8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */,
+				8FD3772A1C56A1F400811189 /* Course.swift in Sources */,
 				8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */,
-				8F5BD1191C53B035002B5D6B /* CoursesViewController.swift in Sources */,
+				8FE573CB1C56BD5700A04C52 /* CoursesTableViewController.swift in Sources */,
 				8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */,
 				8F36E9551C52CABF00E36C14 /* AppDelegate.swift in Sources */,
 				8F36E9751C52CF7A00E36C14 /* User.swift in Sources */,
