@@ -15,6 +15,7 @@
 		8F36E9751C52CF7A00E36C14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9741C52CF7A00E36C14 /* User.swift */; };
 		8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9561C52CABF00E36C14 /* OverviewController.swift */; };
 		8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */; };
+		8FC11AD01C5C299800694FDE /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11ACF1C5C299800694FDE /* .travis.yml */; };
 		8FD377281C569C6700811189 /* CoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377271C569C6700811189 /* CoursesTableViewCell.swift */; };
 		8FD3772A1C56A1F400811189 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377291C56A1F400811189 /* Course.swift */; };
 		8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377311C56B8D600811189 /* AddCourseViewController.swift */; };
@@ -44,6 +45,7 @@
 		8F36E96B1C52CAC000E36C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F36E9741C52CF7A00E36C14 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8FC11ACF1C5C299800694FDE /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		8FD377271C569C6700811189 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewCell.swift; sourceTree = "<group>"; };
 		8FD377291C56A1F400811189 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8FD377311C56B8D600811189 /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		8F36E9481C52CABF00E36C14 = {
 			isa = PBXGroup;
 			children = (
+				8FC11ACF1C5C299800694FDE /* .travis.yml */,
 				8F36E9531C52CABF00E36C14 /* StudyOrganizer */,
 				8F36E9681C52CAC000E36C14 /* StudyOrganizerTests */,
 				8F36E9521C52CABF00E36C14 /* Products */,
@@ -198,6 +201,7 @@
 			files = (
 				8F36E95F1C52CABF00E36C14 /* LaunchScreen.storyboard in Resources */,
 				8F36E95C1C52CABF00E36C14 /* Assets.xcassets in Resources */,
+				8FC11AD01C5C299800694FDE /* .travis.yml in Resources */,
 				8F36E95A1C52CABF00E36C14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

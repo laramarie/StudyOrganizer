@@ -1,0 +1,13 @@
+language: objective-c
+
+branches:
+only:
+- master
+
+xcode_project: StudyOrganizer.xcodeproj
+xcode_scheme: StudyOrganizer
+osx_image: beta-xcode7.2
+xcode_sdk: iphonesimulator9.2
+
+script:
+- xcodebuild clean build test -project StudyOrganizer.xcodeproj -scheme StudyOrganizer
