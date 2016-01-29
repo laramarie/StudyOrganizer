@@ -11,7 +11,7 @@ import UIKit
 protocol SaveCourseDelegate: class {
     func didPressSaveCourse(course: Course) -> Bool
 }
-class AddCourseViewController: UIViewController {
+class AddCourseViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var ectsLabel: UILabel!
@@ -32,31 +32,15 @@ class AddCourseViewController: UIViewController {
             nameField.text = course?.name
             if(course?.ECTS != nil) {
                 ectsSlider.value = Float(course!.ECTS)
+                ectsLabel.text = String(course!.ECTS)
             }
             doneSwitch.enabled = (course?.done)!
             gradeField.text = String(course?.grade)
             datePicker.date = (course?.exam)!
         }
-    }
-
-    @IBAction func pressedSaveButton(sender: UIBarButtonItem) {
-    }
-    
-    @IBAction func saveProfile(sender: UIBarButtonItem) {
-        checkValidCourse()
-        if(course != nil) {
-            course?.name = nameField.text!
-            course?.ECTS = Int(ectsSlider.value)
-            course?.done = doneSwitch.enabled
-            course?.grade = Double(gradeField.text!)!
-            course?.exam = datePicker.date
-        } else {
-            course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: Double(gradeField.text!)!, done: doneSwitch.enabled, todo: [], exam: datePicker.date)
-        }
-        if let success = delegate?.didPressSaveCourse(course!) where success {
-            navigationController?.popViewControllerAnimated(true)
-            print("Profile saved")
-        }
+        
+        nameField.delegate = self
+        gradeField.delegate = self
     }
     
     // MARK: UITextFieldDelegate
@@ -82,6 +66,39 @@ class AddCourseViewController: UIViewController {
             saveButton.enabled = false
         } else {
             saveButton.enabled = true
+        }
+    }
+
+    @IBAction func changedECTS(sender: UISlider) {
+        ectsLabel.text = String(Int(sender.value))
+    }
+    
+    @IBAction func cancelAddingCourse(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+        nameField.text = ""
+        ectsSlider.value = 1
+        ectsLabel.text = "1"
+        doneSwitch.on = false
+        gradeField.text = ""
+        datePicker.date = NSDate.init()
+        print("Adding cancelled")
+    }
+    @IBAction func saveProfile(sender: UIBarButtonItem) {
+        checkValidCourse()
+        if(course != nil) {
+            course?.name = nameField.text!
+            course?.ECTS = Int(ectsSlider.value)
+            course?.done = doneSwitch.enabled
+            course?.grade = Double(gradeField.text!)!
+            course?.exam = datePicker.date
+        } else if(gradeField.text == ""){
+            course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: 0, done: doneSwitch.on, todo: [], exam: datePicker.date)
+        } else {
+            course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: Double(gradeField.text!)!, done: doneSwitch.on, todo: [], exam: datePicker.date)
+        }
+        if let success = delegate?.didPressSaveCourse(course!) where success {
+            self.dismissViewControllerAnimated(false, completion: nil)
+            print("Course saved")
         }
     }
 }

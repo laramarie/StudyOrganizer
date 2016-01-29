@@ -186,7 +186,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.4941176471" green="0.78823529410000004" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10372836069999999" green="0.42005481020000002" blue="0.0087750488480000007" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.967741935483871" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Hpu-VB-brc" kind="relationship" relationship="viewControllers" id="G9b-0F-aed"/>
@@ -206,7 +207,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="xGS-aF-WWc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.49411764705882355" green="0.78823529411764703" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10372836068686654" green="0.42005481020942403" blue="0.0087750488482473566" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -225,8 +226,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="fIw-Ib-R3t">
-                            <rect key="frame" x="0.0" y="136" width="600" height="416"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Uok-2a-aoY">
+                            <rect key="frame" x="0.0" y="136" width="600" height="423"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -267,7 +268,7 @@
                     <navigationItem key="navigationItem" title="Courses" id="09Z-3c-ltu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6hG-lX-QO1">
                             <connections>
-                                <segue destination="bkn-XM-HM2" kind="presentation" id="NnU-xA-N0r"/>
+                                <segue destination="rvy-as-IUi" kind="presentation" identifier="addCourse" id="MG8-F1-6rL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -300,11 +301,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="GFP-x9-cuP">
-                                <rect key="frame" x="140" y="134" width="415.5" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="GFP-x9-cuP">
+                                <rect key="frame" x="140" y="133" width="416.5" height="31"/>
                                 <color key="minimumTrackTintColor" red="0.42745098039215684" green="0.73333333333333328" blue="0.99607843137254903" alpha="0.50193927304964536" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" red="0.49006857198368292" green="0.78800531281196973" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.4941176471" green="0.78823529410000004" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changedECTS:" destination="rvy-as-IUi" eventType="valueChanged" id="7Qn-wu-hVB"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzG-2G-8Q1">
                                 <rect key="frame" x="568" y="139" width="8" height="20.5"/>
@@ -319,7 +323,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFS-mE-P6B">
-                                <rect key="frame" x="142" y="88" width="433" height="30"/>
+                                <rect key="frame" x="141" y="88" width="434" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -329,11 +333,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ASU-4c-G7w">
-                                <rect key="frame" x="531" y="177" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ASU-4c-G7w">
+                                <rect key="frame" x="531" y="176" width="51" height="31"/>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tet-Gc-7tJ">
-                                <rect key="frame" x="92" y="-50" width="25" height="30"/>
+                                <rect key="frame" x="91" y="-50" width="25" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -344,7 +348,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Odx-e5-NOk">
-                                <rect key="frame" x="151" y="270" width="424" height="216"/>
+                                <rect key="frame" x="150" y="270" width="425" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="475443498.57927001">
                                     <!--2016-01-25 19:38:18 +0000-->
                                 </date>
@@ -354,33 +358,57 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="RYd-6n-GrH">
+                                <rect key="frame" x="-2" y="0.0" width="603" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="KdV-Kz-eVW"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.10372836069999999" green="0.42005481020000002" blue="0.0087750488480000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Add Course" id="7VE-VF-ufN">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="k7G-Ww-d3T">
+                                            <connections>
+                                                <action selector="cancelAddingCourse:" destination="rvy-as-IUi" id="T9P-pv-SeD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9T1-2c-9gX">
+                                            <connections>
+                                                <action selector="saveProfile:" destination="rvy-as-IUi" id="jJV-Ow-NT8"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Odx-e5-NOk" firstAttribute="top" secondItem="7cH-P6-uu0" secondAttribute="bottom" constant="23.5" id="3sS-mA-85q"/>
                             <constraint firstItem="2TB-2j-eVe" firstAttribute="leading" secondItem="5CM-UY-7Ke" secondAttribute="leadingMargin" constant="5" id="5ia-2z-tuK"/>
                             <constraint firstItem="GFP-x9-cuP" firstAttribute="top" secondItem="xXw-nZ-sbO" secondAttribute="bottom" constant="20" id="9rc-xg-XrO"/>
-                            <constraint firstItem="tet-Gc-7tJ" firstAttribute="leading" secondItem="2X9-sF-Slx" secondAttribute="trailing" constant="8" id="A1h-ep-qlb"/>
+                            <constraint firstItem="tet-Gc-7tJ" firstAttribute="leading" secondItem="2X9-sF-Slx" secondAttribute="trailing" constant="7" id="A1h-ep-qlb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Odx-e5-NOk" secondAttribute="trailing" constant="5" id="Aae-jg-G7L"/>
                             <constraint firstItem="ASU-4c-G7w" firstAttribute="trailing" secondItem="5CM-UY-7Ke" secondAttribute="trailingMargin" id="Df7-np-z73"/>
                             <constraint firstItem="HFS-mE-P6B" firstAttribute="top" secondItem="tet-Gc-7tJ" secondAttribute="bottom" constant="108" id="HSN-98-6LT"/>
-                            <constraint firstItem="GzG-2G-8Q1" firstAttribute="top" secondItem="xXw-nZ-sbO" secondAttribute="bottom" constant="75" id="JIN-my-ekL"/>
+                            <constraint firstItem="GzG-2G-8Q1" firstAttribute="top" secondItem="xXw-nZ-sbO" secondAttribute="bottom" constant="119" id="JIN-my-ekL"/>
                             <constraint firstItem="ASU-4c-G7w" firstAttribute="top" secondItem="GFP-x9-cuP" secondAttribute="bottom" constant="13" id="MGD-Zu-lAH"/>
                             <constraint firstItem="3ez-j6-1eD" firstAttribute="leading" secondItem="5CM-UY-7Ke" secondAttribute="leadingMargin" constant="5" id="NEL-0g-cw7"/>
                             <constraint firstItem="3ez-j6-1eD" firstAttribute="top" secondItem="2X9-sF-Slx" secondAttribute="bottom" constant="26.5" id="O1V-63-98g"/>
                             <constraint firstItem="tet-Gc-7tJ" firstAttribute="top" secondItem="5CM-UY-7Ke" secondAttribute="topMargin" constant="-50" id="UK0-nf-pKz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HFS-mE-P6B" secondAttribute="trailing" constant="5" id="XRz-5M-qYG"/>
-                            <constraint firstItem="2X9-sF-Slx" firstAttribute="top" secondItem="xXw-nZ-sbO" secondAttribute="bottom" constant="28" id="YE5-Oe-INp"/>
-                            <constraint firstItem="Odx-e5-NOk" firstAttribute="leading" secondItem="QoL-6v-npa" secondAttribute="trailing" constant="20" id="YFX-zv-uOD"/>
+                            <constraint firstItem="2X9-sF-Slx" firstAttribute="top" secondItem="xXw-nZ-sbO" secondAttribute="bottom" constant="72" id="YE5-Oe-INp"/>
+                            <constraint firstItem="Odx-e5-NOk" firstAttribute="leading" secondItem="QoL-6v-npa" secondAttribute="trailing" constant="19" id="YFX-zv-uOD"/>
                             <constraint firstItem="7cH-P6-uu0" firstAttribute="leading" secondItem="5CM-UY-7Ke" secondAttribute="leadingMargin" constant="5" id="bdi-JF-acT"/>
-                            <constraint firstItem="ASU-4c-G7w" firstAttribute="top" secondItem="GzG-2G-8Q1" secondAttribute="bottom" constant="18" id="diY-QU-FIO"/>
-                            <constraint firstItem="GzG-2G-8Q1" firstAttribute="leading" secondItem="GFP-x9-cuP" secondAttribute="trailing" constant="15" id="dso-Aj-zpj"/>
+                            <constraint firstItem="ASU-4c-G7w" firstAttribute="top" secondItem="GzG-2G-8Q1" secondAttribute="bottom" constant="17" id="diY-QU-FIO"/>
+                            <constraint firstItem="GzG-2G-8Q1" firstAttribute="leading" secondItem="GFP-x9-cuP" secondAttribute="trailing" constant="14" id="dso-Aj-zpj"/>
                             <constraint firstItem="7cH-P6-uu0" firstAttribute="top" secondItem="2TB-2j-eVe" secondAttribute="bottom" constant="23.5" id="eUI-96-mpl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ASU-4c-G7w" secondAttribute="trailing" constant="5" id="gEQ-qK-fI6"/>
                             <constraint firstItem="QoL-6v-npa" firstAttribute="leading" secondItem="5CM-UY-7Ke" secondAttribute="leadingMargin" constant="5" id="gmI-oc-4j4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GzG-2G-8Q1" secondAttribute="trailing" constant="3.5" id="hWC-RG-9Am"/>
+                            <constraint firstItem="RYd-6n-GrH" firstAttribute="leading" secondItem="5CM-UY-7Ke" secondAttribute="leadingMargin" constant="-22" id="lKN-fI-xO4"/>
+                            <constraint firstItem="RYd-6n-GrH" firstAttribute="centerX" secondItem="5CM-UY-7Ke" secondAttribute="centerX" id="lXN-T6-Cca"/>
                             <constraint firstItem="QoL-6v-npa" firstAttribute="top" secondItem="7cH-P6-uu0" secondAttribute="bottom" constant="23.5" id="m0g-gT-298"/>
-                            <constraint firstItem="HFS-mE-P6B" firstAttribute="leading" secondItem="2TB-2j-eVe" secondAttribute="trailing" constant="72" id="mtL-TJ-vw7"/>
+                            <constraint firstItem="HFS-mE-P6B" firstAttribute="leading" secondItem="2TB-2j-eVe" secondAttribute="trailing" constant="71" id="mtL-TJ-vw7"/>
+                            <constraint firstItem="RYd-6n-GrH" firstAttribute="top" secondItem="5CM-UY-7Ke" secondAttribute="top" id="pbg-h6-v1P"/>
                             <constraint firstItem="2X9-sF-Slx" firstAttribute="leading" secondItem="5CM-UY-7Ke" secondAttribute="leadingMargin" constant="5" id="rtM-pa-FJY"/>
                             <constraint firstItem="ASU-4c-G7w" firstAttribute="leading" secondItem="7cH-P6-uu0" secondAttribute="trailing" constant="15" id="vPd-mU-3IX"/>
                             <constraint firstItem="2TB-2j-eVe" firstAttribute="top" secondItem="3ez-j6-1eD" secondAttribute="bottom" constant="22.5" id="vQl-sH-acl"/>
@@ -407,12 +435,12 @@
                         <outlet property="ectsSlider" destination="GFP-x9-cuP" id="GmB-D5-x2E"/>
                         <outlet property="gradeField" destination="1ul-6b-fbk" id="dpD-PT-siu"/>
                         <outlet property="nameField" destination="HFS-mE-P6B" id="4pX-qo-PwX"/>
-                        <outlet property="saveButton" destination="ok9-hx-Cij" id="b1l-km-LIA"/>
+                        <outlet property="saveButton" destination="9T1-2c-9gX" id="Tvn-6D-6x2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7py-4L-c19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3069" y="114"/>
+            <point key="canvasLocation" x="2241" y="254"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="25g-hU-GLC">
@@ -464,10 +492,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X7B-Pd-dbG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Courses" image="courses" id="zSp-Qz-mLe"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="jMr-yt-5ha">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="jMr-yt-5ha">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.4941176471" green="0.78823529410000004" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10372836069999999" green="0.42005481020000002" blue="0.0087750488480000007" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -477,25 +505,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cbi-4E-8aa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="693" y="254"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="7eH-6h-7Ox">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bkn-XM-HM2" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="ij1-0f-n26">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.4941176471" green="0.78823529410000004" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="rvy-as-IUi" kind="relationship" relationship="rootViewController" id="dR3-Gg-2b6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VqP-fa-nwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2257" y="114"/>
         </scene>
     </scenes>
     <resources>
