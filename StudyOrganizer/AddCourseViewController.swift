@@ -11,6 +11,7 @@ import UIKit
 protocol SaveCourseDelegate: class {
     func didPressSaveCourse(course: Course) -> Bool
 }
+
 class AddCourseViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameField: UITextField!
@@ -35,7 +36,7 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
                 ectsLabel.text = String(course!.ECTS)
             }
             doneSwitch.enabled = (course?.done)!
-            gradeField.text = String(course?.grade)
+            gradeField.text = String((course?.grade)!)
             datePicker.date = (course?.exam)!
         }
         
@@ -83,6 +84,7 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         datePicker.date = NSDate.init()
         print("Adding cancelled")
     }
+    
     @IBAction func saveProfile(sender: UIBarButtonItem) {
         checkValidCourse()
         if(course != nil) {

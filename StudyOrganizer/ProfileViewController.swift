@@ -85,6 +85,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
 
+    @IBAction func cancelEditingPressed(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        nameField.text = user?.name
+        universityField.text = user?.university
+        fieldField.text = user?.fieldOfStudies
+        userImageView.image = user?.image
+        print("Editing cancelled")
+    }
+    
     @IBAction func saveProfile(sender: UIBarButtonItem) {
         if (nameField.text == "" || universityField.text == "" || fieldField.text == "") {
         } else {
@@ -93,7 +102,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             user?.fieldOfStudies = fieldField!.text!
             user?.image = userImageView!.image
             if let success = delegate?.didPressSaveProfile(user!) where success {
-                navigationController?.popViewControllerAnimated(true)
+                self.dismissViewControllerAnimated(true, completion: nil)
                 print("Profile saved")
             }
         }
