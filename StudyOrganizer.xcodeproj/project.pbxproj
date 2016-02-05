@@ -18,6 +18,8 @@
 		8F5773F11C5FE7A100B85393 /* TodoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */; };
 		8F5773F31C5FF15500B85393 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */; };
 		8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */; };
+		8FBF4AA61C6514C200317C17 /* CoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */; };
+		8FBF4AA81C65208700317C17 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF4AA71C65208700317C17 /* Task.swift */; };
 		8FC11AD01C5C299800694FDE /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11ACF1C5C299800694FDE /* .travis.yml */; };
 		8FD3772A1C56A1F400811189 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377291C56A1F400811189 /* Course.swift */; };
 		8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377311C56B8D600811189 /* AddCourseViewController.swift */; };
@@ -50,6 +52,8 @@
 		8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListTableViewController.swift; sourceTree = "<group>"; };
 		8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewCell.swift; sourceTree = "<group>"; };
+		8FBF4AA71C65208700317C17 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8FC11ACF1C5C299800694FDE /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		8FD377291C56A1F400811189 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8FD377311C56B8D600811189 /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
@@ -104,11 +108,13 @@
 				8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */,
 				8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */,
 				8FD377291C56A1F400811189 /* Course.swift */,
+				8FBF4AA71C65208700317C17 /* Task.swift */,
 				8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */,
 				8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */,
 				8F36E9741C52CF7A00E36C14 /* User.swift */,
 				8F36E95B1C52CABF00E36C14 /* Assets.xcassets */,
 				8F36E95D1C52CABF00E36C14 /* LaunchScreen.storyboard */,
+				8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */,
 				8F36E9601C52CABF00E36C14 /* Info.plist */,
 			);
 			path = StudyOrganizer;
@@ -230,8 +236,10 @@
 				8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */,
 				8FD3772A1C56A1F400811189 /* Course.swift in Sources */,
 				8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */,
+				8FBF4AA81C65208700317C17 /* Task.swift in Sources */,
 				8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */,
 				8F5773F31C5FF15500B85393 /* AddTaskViewController.swift in Sources */,
+				8FBF4AA61C6514C200317C17 /* CoursesTableViewCell.swift in Sources */,
 				8F36E9551C52CABF00E36C14 /* AppDelegate.swift in Sources */,
 				8F5773F11C5FE7A100B85393 /* TodoListTableViewController.swift in Sources */,
 				8F5773EF1C5FCF4F00B85393 /* CourseDetailViewController.swift in Sources */,

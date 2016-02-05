@@ -12,7 +12,8 @@ protocol SaveProfileDelegate: class {
     func didPressSaveProfile(user: User) -> Bool
 }
 
-class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var universityField: UITextField!

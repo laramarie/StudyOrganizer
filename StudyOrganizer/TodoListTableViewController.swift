@@ -49,11 +49,11 @@ class TodoListTableViewController: UITableViewController {
             }
             index++
         }
-        
         return count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(courses[filledIndex[section]].todo.count)
         return courses[filledIndex[section]].todo.count
     }
 
@@ -62,39 +62,56 @@ class TodoListTableViewController: UITableViewController {
         
         // Fetches the appropriate course for the data source layout.
         let course = courses[filledIndex[indexPath.section]]
-        cell.textLabel?.text = course.todo[indexPath.row]
+        cell.textLabel?.text = course.todo[indexPath.row].descript
+        if(!course.todo[indexPath.row].done) {
+            cell.accessoryType = .None
+        }
+        else {
+            cell.accessoryType = .Checkmark
+        }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(courses[section].name)"
+        return "\(courses[filledIndex[section]].name)"
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+        forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            courses[indexPath.section].todo.removeAtIndex(indexPath.row)
+            courses[filledIndex[indexPath.section]].todo.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-            // do nothing
         }
         
         saveCourses()
         self.tableView.reloadData()
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.dequeueReusableCellWithIdentifier("todoItem", forIndexPath: indexPath)
+        let course = courses[filledIndex[indexPath.section]]
+        if(course.todo[indexPath.row].done) {
+            cell.accessoryType = .None
+            course.todo[indexPath.row].done = false
+        } else {
+            cell.accessoryType = .Checkmark
+            course.todo[indexPath.row].done = true
+        }
+        cell.textLabel?.text = course.todo[indexPath.row].descript
+    }
+    
     // MARK: NSCoding
     func saveCourses() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(courses!, toFile: Course.ArchiveURL.path!)
         if !isSuccessfulSave {
-            print("Failed to save user...")
+            print("Failed to save courses...")
         }
     }
     

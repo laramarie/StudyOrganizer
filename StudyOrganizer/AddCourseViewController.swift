@@ -94,9 +94,11 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
             course?.grade = Double(gradeField.text!)!
             course?.exam = datePicker.date
         } else if(gradeField.text == ""){
-            course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: 0, done: doneSwitch.on, todo: [], exam: datePicker.date)
+            course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: 0, done: doneSwitch.on,
+                todo: [], exam: datePicker.date)
         } else {
-            course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: Double(gradeField.text!)!, done: doneSwitch.on, todo: [], exam: datePicker.date)
+            course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: Double(gradeField.text!)!,
+                done: doneSwitch.on, todo: [], exam: datePicker.date)
         }
         if let success = delegate?.didPressSaveCourse(course!) where success {
             self.dismissViewControllerAnimated(false, completion: nil)

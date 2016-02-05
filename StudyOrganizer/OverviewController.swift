@@ -59,7 +59,8 @@ class OverviewController: UIViewController {
     }
     
     func loadSampleUser() {
-        user = User(name: "Your name", university: "Your university", fieldOfStudies: "Your field of studies", image: UIImage(named: "defaultImage")!)
+        user = User(name: "Your name", university: "Your university", fieldOfStudies: "Your field of studies",
+            image: UIImage(named: "defaultImage")!)
     }
 }
 

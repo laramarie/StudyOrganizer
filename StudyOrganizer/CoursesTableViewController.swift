@@ -26,7 +26,7 @@ class CoursesTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -99,7 +99,8 @@ class CoursesTableViewController: UITableViewController {
         return true
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+        forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
             if(actualIndex.count > 0 && courses[indexPath.row] == courses[actualIndex[indexPath.row]]) {
@@ -110,9 +111,6 @@ class CoursesTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             getAmountOftCourses()
             
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-            // do nothing
         }
         
         saveCourses()

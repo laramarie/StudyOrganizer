@@ -44,8 +44,18 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         if(course.done) {
             gradeLabel.text = "Grade: \(String(course.grade))"
         } else {
-            gradeLabel.text = ""
+            let today = NSDate()
+            let daysInBetween = daysBetweenDate(today, endDate: course.exam)
+            gradeLabel.text = "\(daysInBetween) days until your exam."
         }
+    }
+    
+    func daysBetweenDate(startDate: NSDate, endDate: NSDate) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([.Day], fromDate: startDate, toDate: endDate, options: [])
+        
+        return components.day
     }
 
     // MARK: - Table view data source
@@ -63,7 +73,14 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath)
         
         // Fetches the appropriate String for the data source layout.
-        cell.textLabel?.text = course.todo[indexPath.row]
+        cell.textLabel?.text = course.todo[indexPath.row].descript
+
+        if(!course.todo[indexPath.row].done) {
+            cell.accessoryType = .None
+        }
+        else {
+            cell.accessoryType = .Checkmark
+        }
 
         return cell
     }
@@ -76,7 +93,8 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+        forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
             course.todo.removeAtIndex(indexPath.row)
@@ -90,6 +108,20 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.reloadData()
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath)
+        if(course.todo[indexPath.row].done) {
+            cell.accessoryType = .None
+            course.todo[indexPath.row].done = false
+        } else {
+            cell.accessoryType = .Checkmark
+            course.todo[indexPath.row].done = true
+        }
+        cell.textLabel?.text = course.todo[indexPath.row].descript
+    }
+    
+    // MARK: Navigation
+    // set content and delegate for editing course details
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationViewController = segue.destinationViewController as? AddCourseViewController
             where segue.identifier == "editCourse" {
@@ -98,6 +130,7 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    // MARK: IBActions
     @IBAction func pressedCancelButton(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

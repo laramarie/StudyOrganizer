@@ -14,7 +14,7 @@ class Course: NSObject, NSCoding {
     var ECTS: Int
     var grade: Double
     var done: Bool
-    var todo: [String]
+    var todo: [Task]
     var exam: NSDate
     
     // MARK: Archiving Paths
@@ -22,7 +22,7 @@ class Course: NSObject, NSCoding {
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("course")
     
-    init?(name: String, ECTS: Int, grade: Double, done: Bool, todo: [String], exam: NSDate){
+    init?(name: String, ECTS: Int, grade: Double, done: Bool, todo: [Task], exam: NSDate){
         self.name = name
         self.ECTS = ECTS
         self.grade = grade
@@ -48,10 +48,10 @@ class Course: NSObject, NSCoding {
         let ECTS = aDecoder.decodeObjectForKey(PropKey.ECTSKey) as! Int
         let grade = aDecoder.decodeObjectForKey(PropKey.gradeKey) as! Double
         let done = aDecoder.decodeObjectForKey(PropKey.doneKey) as! Bool
-        let todo = aDecoder.decodeObjectForKey(PropKey.todoKey) as! [String]
+        let todo = aDecoder.decodeObjectForKey(PropKey.todoKey) as! [Task]
         let exam = aDecoder.decodeObjectForKey(PropKey.examKey) as? NSDate
         
-        // Must call designated initilizer.
+        // Must call designated initializer.
         self.init(name: name, ECTS: ECTS, grade: grade, done: done, todo: todo, exam: exam!)
     }
 }

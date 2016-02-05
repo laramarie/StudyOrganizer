@@ -19,6 +19,7 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var descriptionLabel: UITextField!
     
     var courses: [Course]!
+    var notFinishedCourses = [Int]()
     
     weak var delegate: SaveTaskDelegate?
 
@@ -34,12 +35,22 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return 1
     }
     
+    // only create tasks for courses which aren't done yet
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return courses.count;
+        var count = 0
+        var index = 0
+        for course in courses {
+            if(!course.done) {
+                count++
+                notFinishedCourses.append(index)
+            }
+            index++
+        }
+        return count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return courses[row].name
+        return courses[notFinishedCourses[row]].name
     }
     
     // MARK: UITextFieldDelegate
@@ -68,7 +79,8 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         if (descriptionLabel.text == "") {
         } else {
             let index = coursePicker.selectedRowInComponent(0)
-            courses[index].todo.append(descriptionLabel.text!)
+            let newTask = Task(descript: descriptionLabel.text!, done: false)
+            courses[index].todo.append(newTask)
             if let success = delegate?.didPressSaveTask(courses!) where success {
                 self.dismissViewControllerAnimated(true, completion: nil)
                 print("Profile saved")
