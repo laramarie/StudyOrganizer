@@ -19,7 +19,6 @@
 		8F5773F31C5FF15500B85393 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */; };
 		8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */; };
 		8FC11AD01C5C299800694FDE /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11ACF1C5C299800694FDE /* .travis.yml */; };
-		8FD377281C569C6700811189 /* CoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377271C569C6700811189 /* CoursesTableViewCell.swift */; };
 		8FD3772A1C56A1F400811189 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377291C56A1F400811189 /* Course.swift */; };
 		8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377311C56B8D600811189 /* AddCourseViewController.swift */; };
 		8FE573CD1C58F08900A04C52 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */; };
@@ -52,7 +51,6 @@
 		8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8FC11ACF1C5C299800694FDE /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
-		8FD377271C569C6700811189 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewCell.swift; sourceTree = "<group>"; };
 		8FD377291C56A1F400811189 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8FD377311C56B8D600811189 /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
 		8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */,
 				8FD377291C56A1F400811189 /* Course.swift */,
 				8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */,
-				8FD377271C569C6700811189 /* CoursesTableViewCell.swift */,
 				8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */,
 				8F36E9741C52CF7A00E36C14 /* User.swift */,
 				8F36E95B1C52CABF00E36C14 /* Assets.xcassets */,
@@ -229,7 +226,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FD377281C569C6700811189 /* CoursesTableViewCell.swift in Sources */,
 				8FE573CD1C58F08900A04C52 /* CoursesTableViewController.swift in Sources */,
 				8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */,
 				8FD3772A1C56A1F400811189 /* Course.swift in Sources */,

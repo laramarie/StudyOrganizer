@@ -11,39 +11,57 @@ import UIKit
 class TodoListTableViewController: UITableViewController {
     
     var courses: [Course]!
-    var openIndex = [Int]()
-    var closedIndex = [Int]()
+    var filledIndex = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedCourses = loadCourses() {
-            courses = savedCourses
-        } else {
-            courses = []
-        }
+        setCourses()
+        
         tableView.dataSource = self
         tableView.delegate = self
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        setCourses()
+        self.tableView.reloadData()
+    }
+    
+    func setCourses() {
+        if let savedCourses = loadCourses() {
+            courses = savedCourses
+        } else {
+            courses = []
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return courses.count
+        var count = 0
+        var index = 0
+        for course in courses {
+            if(course.todo.count > 0) {
+                count++
+                filledIndex.append(index)
+            }
+            index++
+        }
+        
+        return count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses[section].todo.count
+        return courses[filledIndex[section]].todo.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("todoItem", forIndexPath: indexPath)
         
         // Fetches the appropriate course for the data source layout.
-        let course: Course!
-        course = courses[indexPath.section]
+        let course = courses[filledIndex[indexPath.section]]
         cell.textLabel?.text = course.todo[indexPath.row]
         
         return cell
@@ -68,24 +86,10 @@ class TodoListTableViewController: UITableViewController {
             // do nothing
         }
         
-        //saveCourses()
+        saveCourses()
         self.tableView.reloadData()
     }
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     // MARK: NSCoding
     func saveCourses() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(courses!, toFile: Course.ArchiveURL.path!)

@@ -21,6 +21,20 @@ class CoursesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializeData()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        initializeData()
+        self.tableView.reloadData()
+    }
+    
+    func initializeData() {
         // Load any saved courses, otherwise create array.
         if let savedCourses = loadCourses() {
             courses = savedCourses
@@ -30,10 +44,7 @@ class CoursesTableViewController: UITableViewController {
             numOfActualCourses = 0
             numOfOldCourses = 0
         }
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+
     }
 
     // MARK: - Table view data source
@@ -51,7 +62,7 @@ class CoursesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("coursesCell", forIndexPath: indexPath) as! CoursesTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("coursesCell", forIndexPath: indexPath)
 
         // Fetches the appropriate course for the data source layout.
         let course: Course!
@@ -108,22 +119,6 @@ class CoursesTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-    
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationViewController = segue.destinationViewController as? AddCourseViewController
             where segue.identifier == "addCourse" {
@@ -149,6 +144,9 @@ class CoursesTableViewController: UITableViewController {
     
     // MARK: NSCoding
     func saveCourses() {
+        // sort before saving
+        courses.sortInPlace { $0.name < $1.name }
+        
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(courses!, toFile: Course.ArchiveURL.path!)
         if !isSuccessfulSave {
             print("Failed to save user...")
