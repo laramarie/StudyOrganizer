@@ -17,6 +17,7 @@ class TodoListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         setCourses()
+        getAmountOfSections()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -38,10 +39,8 @@ class TodoListTableViewController: UITableViewController {
             courses = []
         }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+    private func getAmountOfSections() {
         var count = 0
         var index = 0
         filledIndex = []
@@ -52,7 +51,12 @@ class TodoListTableViewController: UITableViewController {
             }
             index++
         }
-        return count
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return filledIndex.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,12 +92,18 @@ class TodoListTableViewController: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             courses[filledIndex[indexPath.section]].todo.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
+            filledIndex.removeAtIndex(indexPath.section)
+            getAmountOfSections()
+            saveCourses()
+            if(courses[filledIndex[indexPath.section]].todo.count == 1) {
+                // last element in section being deleted
+                tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
+            } else {
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            viewWillAppear(true)
+            self.tableView.reloadData()
         }
-        
-        saveCourses()
-        self.tableView.reloadData()
     }
     
     // MARK: NSCoding
@@ -108,6 +118,8 @@ class TodoListTableViewController: UITableViewController {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Course.ArchiveURL.path!) as? [Course]
     }
     
+    // MARK: Navigation 
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationViewController = segue.destinationViewController as? AddTaskViewController
             where segue.identifier == "addTask" {
@@ -120,6 +132,7 @@ class TodoListTableViewController: UITableViewController {
 extension TodoListTableViewController: SaveTaskDelegate {
     func didPressSaveTask(course: [Course]) -> Bool {
         courses = course
+        getAmountOfSections()
         
         // Save the course.
         saveCourses()

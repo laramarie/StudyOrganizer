@@ -106,16 +106,35 @@ class CoursesTableViewController: UITableViewController {
             // Delete the row from the data source
             if(actualIndex.count > 0 && courses[indexPath.row] == courses[actualIndex[indexPath.row]]) {
                 courses.removeAtIndex(indexPath.row)
+                actualIndex.removeAtIndex(indexPath.row)
             } else {
                 courses.removeAtIndex(oldIndex[indexPath.row])
+                oldIndex.removeAtIndex(indexPath.row)
             }
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             getAmountOfCourses()
+            saveCourses()
             
+            // Delete row from View
+            switch(indexPath.section) {
+            case 0:
+                if(actualIndex.count == 1) {
+                    tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
+                } else {
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }
+                break
+            case 1:
+                if(oldIndex.count == 1) {
+                    tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
+                } else {
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }
+                break
+            default:
+                break
+            }
+            self.tableView.reloadData()
         }
-        
-        saveCourses()
-        self.tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
