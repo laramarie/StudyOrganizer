@@ -35,6 +35,11 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         initView()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        initView()
+        self.tableView.reloadData()
+    }
+    
     func initView() {
         titelLabel.title = course.name
         ectsLabel.text = "ECTS: \(course.ECTS)"
@@ -70,19 +75,19 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as?
+        TodoTableViewCell
+        
+        cell!.delegate = self
         
         // Fetches the appropriate String for the data source layout.
-        cell.textLabel?.text = course.todo[indexPath.row].descript
+        cell!.todoItemLabel.text = course.todo[indexPath.row].descript
 
-        if(!course.todo[indexPath.row].done) {
-            cell.accessoryType = .None
-        }
-        else {
-            cell.accessoryType = .Checkmark
+        if(course.todo[indexPath.row].done) {
+            cell!.checkButton.setState(true)
         }
 
-        return cell
+        return cell!
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -108,18 +113,6 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.reloadData()
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath)
-        if(course.todo[indexPath.row].done) {
-            cell.accessoryType = .None
-            course.todo[indexPath.row].done = false
-        } else {
-            cell.accessoryType = .Checkmark
-            course.todo[indexPath.row].done = true
-        }
-        cell.textLabel?.text = course.todo[indexPath.row].descript
-    }
-    
     // MARK: Navigation
     // set content and delegate for editing course details
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -132,14 +125,35 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: IBActions
     @IBAction func pressedCancelButton(sender: UIBarButtonItem) {
+        if let success = delegate?.didPressSaveTodo(course!) where success {
+            self.dismissViewControllerAnimated(false, completion: nil)
+            print("Course saved")
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
 extension CourseDetailViewController: SaveCourseDelegate {
+    // Delegate for getting data from editing course
     func didPressSaveCourse(course: Course) -> Bool {
         self.course = course
         initView()
+        return true
+    }
+}
+
+extension CourseDetailViewController: ItemCheckedDelegate {
+    // Delegate for getting data from CheckButtons to update todoItem
+    func updateTodoList(todoName: String) -> Bool {
+        for todoItem in course.todo {
+            if todoName == todoItem.descript {
+                if todoItem.done {
+                    todoItem.done = false
+                } else {
+                    todoItem.done = true
+                }
+            }
+        }
         return true
     }
 }

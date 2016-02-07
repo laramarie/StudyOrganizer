@@ -25,12 +25,29 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        descriptionLabel.text = ""
 
         // Do any additional setup after loading the view.
-        self.coursePicker.dataSource = self;
-        self.coursePicker.delegate = self;
+        self.coursePicker.dataSource = self
+        self.coursePicker.delegate = self
+        
+        self.addBottomLineToTextField(descriptionLabel)
+    }
+    
+    private func addBottomLineToTextField(textField : UITextField) {
+        // change appearance of the text input fields to bottom line
+        let border = CALayer()
+        let borderWidth = CGFloat(1.0)
+        border.borderColor = UIColor.lightGrayColor().CGColor
+        border.frame = CGRectMake(0, textField.frame.size.height - borderWidth, textField.frame.size.width, textField.frame.size.height)
+        border.borderWidth = borderWidth
+        textField.layer.addSublayer(border)
+        textField.layer.masksToBounds = true
     }
 
+    // MARK: UIPIckerViewDelegate
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -39,6 +56,7 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var count = 0
         var index = 0
+        notFinishedCourses = []
         for course in courses {
             if(!course.done) {
                 count++
@@ -76,11 +94,10 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     @IBAction func savebuttonPressed(sender: UIBarButtonItem) {
-        if (descriptionLabel.text == "") {
-        } else {
+        if !(descriptionLabel.text == "") {
             let index = coursePicker.selectedRowInComponent(0)
             let newTask = Task(descript: descriptionLabel.text!, done: false)
-            courses[index].todo.append(newTask)
+            courses[notFinishedCourses[index]].todo.append(newTask)
             if let success = delegate?.didPressSaveTask(courses!) where success {
                 self.dismissViewControllerAnimated(true, completion: nil)
                 print("Profile saved")

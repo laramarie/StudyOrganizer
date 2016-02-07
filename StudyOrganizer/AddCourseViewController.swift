@@ -42,6 +42,9 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         
         nameField.delegate = self
         gradeField.delegate = self
+        
+        self.addBottomLineToTextField(nameField)
+        self.addBottomLineToTextField(gradeField)
     }
     
     // MARK: UITextFieldDelegate
@@ -61,13 +64,24 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         saveButton.enabled = false
     }
     
-    func checkValidCourse() {
+    private func checkValidCourse() {
         // Disable the Save button if the text field is empty.
         if (nameField.text == "" || gradeField.text == "") {
             saveButton.enabled = false
         } else {
             saveButton.enabled = true
         }
+    }
+    
+    private func addBottomLineToTextField(textField : UITextField) {
+        // change appearance of the text input fields to bottom line
+        let border = CALayer()
+        let borderWidth = CGFloat(1.0)
+        border.borderColor = UIColor.lightGrayColor().CGColor
+        border.frame = CGRectMake(0, textField.frame.size.height - borderWidth, textField.frame.size.width, textField.frame.size.height)
+        border.borderWidth = borderWidth
+        textField.layer.addSublayer(border)
+        textField.layer.masksToBounds = true
     }
 
     @IBAction func changedECTS(sender: UISlider) {

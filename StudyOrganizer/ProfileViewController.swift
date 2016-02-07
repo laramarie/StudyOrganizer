@@ -33,6 +33,10 @@ UINavigationControllerDelegate {
         universityField.delegate = self
         fieldField.delegate = self
         
+        self.addBottomLineToTextField(nameField)
+        self.addBottomLineToTextField(universityField)
+        self.addBottomLineToTextField(fieldField)
+        
         nameField.text = user?.name
         universityField.text = user?.university
         fieldField.text = user?.fieldOfStudies
@@ -58,13 +62,24 @@ UINavigationControllerDelegate {
         saveButton.enabled = false
     }
     
-    func checkValidProfile() {
+    private func checkValidProfile() {
         // Disable the Save button if the text field is empty.
         if (nameField.text == "" || universityField.text == "" || fieldField.text == "") {
             saveButton.enabled = false
         } else {
             saveButton.enabled = true
         }
+    }
+    
+    private func addBottomLineToTextField(textField : UITextField) {
+        // change appearance of the text input fields to bottom line
+        let border = CALayer()
+        let borderWidth = CGFloat(1.0)
+        border.borderColor = UIColor.lightGrayColor().CGColor
+        border.frame = CGRectMake(0, textField.frame.size.height - borderWidth, textField.frame.size.width, textField.frame.size.height)
+        border.borderWidth = borderWidth
+        textField.layer.addSublayer(border)
+        textField.layer.masksToBounds = true
     }
     
     // MARK: Actions

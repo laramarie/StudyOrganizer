@@ -15,8 +15,6 @@ class CoursesTableViewController: UITableViewController {
     var oldIndex = [Int]()
     var numOfActualCourses : Int!
     var numOfOldCourses : Int!
-    
-    var viewControllers: [UIViewController]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +28,7 @@ class CoursesTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        // reload data always before showing tab
         initializeData()
         self.tableView.reloadData()
     }
@@ -38,7 +37,7 @@ class CoursesTableViewController: UITableViewController {
         // Load any saved courses, otherwise create array.
         if let savedCourses = loadCourses() {
             courses = savedCourses
-            getAmountOftCourses()
+            getAmountOfCourses()
         } else {
             courses = []
             numOfActualCourses = 0
@@ -68,12 +67,14 @@ class CoursesTableViewController: UITableViewController {
         let course: Course!
         switch(indexPath.section) {
         case 0:
+            // course isn't marked as done, display name and date of exam
             course = courses[actualIndex[indexPath.row]]
             let date = NSDateFormatter()
             date.dateStyle = NSDateFormatterStyle.ShortStyle
             cell.detailTextLabel?.text = "Exam date: " + date.stringFromDate(course.exam)
             break
         case 1:
+            // course is marked as done, display name and grade
             course = courses[oldIndex[indexPath.row]]
             cell.detailTextLabel?.text = String(course.grade)
             break
@@ -109,7 +110,7 @@ class CoursesTableViewController: UITableViewController {
                 courses.removeAtIndex(oldIndex[indexPath.row])
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            getAmountOftCourses()
+            getAmountOfCourses()
             
         }
         
@@ -156,7 +157,7 @@ class CoursesTableViewController: UITableViewController {
     }
     
     // MARK: Get the number of actual/old courses
-    func getAmountOftCourses() {
+    func getAmountOfCourses() {
         courses.sortInPlace { $0.name < $1.name }
         numOfOldCourses = 0
         numOfActualCourses = 0
@@ -180,7 +181,7 @@ extension CoursesTableViewController: SaveCourseDelegate {
     func didPressSaveCourse(course: Course) -> Bool {
         // Add course and update counter
         courses.append(course)
-        getAmountOftCourses()
+        getAmountOfCourses()
         
         // Save the course.
         saveCourses()
@@ -201,7 +202,7 @@ extension CoursesTableViewController: SaveTodoDelegate {
                 break
             }
         }
-        getAmountOftCourses()
+        getAmountOfCourses()
         
         // Save the course.
         saveCourses()

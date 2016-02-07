@@ -26,10 +26,12 @@ class TodoListTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         setCourses()
+        numberOfSectionsInTableView(self.tableView)
         self.tableView.reloadData()
     }
     
-    func setCourses() {
+    private func setCourses() {
+        // initialize courses from CoreData
         if let savedCourses = loadCourses() {
             courses = savedCourses
         } else {
@@ -42,6 +44,7 @@ class TodoListTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         var count = 0
         var index = 0
+        filledIndex = []
         for course in courses {
             if(course.todo.count > 0) {
                 count++
@@ -53,24 +56,23 @@ class TodoListTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(courses[filledIndex[section]].todo.count)
         return courses[filledIndex[section]].todo.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("todoItem", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("todoItem", forIndexPath: indexPath) as?
+        TodoItemTableViewCell
+        
+        cell!.delegate = self
         
         // Fetches the appropriate course for the data source layout.
         let course = courses[filledIndex[indexPath.section]]
-        cell.textLabel?.text = course.todo[indexPath.row].descript
-        if(!course.todo[indexPath.row].done) {
-            cell.accessoryType = .None
-        }
-        else {
-            cell.accessoryType = .Checkmark
+        cell!.todoItemLabel.text = course.todo[indexPath.row].descript
+        if(course.todo[indexPath.row].done) {
+            cell!.checkButton.setState(true)
         }
         
-        return cell
+        return cell!
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -92,19 +94,6 @@ class TodoListTableViewController: UITableViewController {
         
         saveCourses()
         self.tableView.reloadData()
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.dequeueReusableCellWithIdentifier("todoItem", forIndexPath: indexPath)
-        let course = courses[filledIndex[indexPath.section]]
-        if(course.todo[indexPath.row].done) {
-            cell.accessoryType = .None
-            course.todo[indexPath.row].done = false
-        } else {
-            cell.accessoryType = .Checkmark
-            course.todo[indexPath.row].done = true
-        }
-        cell.textLabel?.text = course.todo[indexPath.row].descript
     }
     
     // MARK: NSCoding
@@ -137,6 +126,23 @@ extension TodoListTableViewController: SaveTaskDelegate {
         
         // Reload table view
         self.tableView.reloadData()
+        return true
+    }
+}
+
+extension TodoListTableViewController: TodoItemCheckedDelegate {
+    func didUpdateTodoList(todoName: String) -> Bool {
+        for course in courses {
+            for todoItem in course.todo {
+                if todoName == todoItem.descript {
+                    if todoItem.done {
+                        todoItem.done = false
+                    } else {
+                        todoItem.done = true
+                    }
+                }
+            }
+        }
         return true
     }
 }
