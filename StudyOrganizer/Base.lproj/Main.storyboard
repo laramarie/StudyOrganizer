@@ -136,6 +136,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Study Overview" id="SaC-G8-6Xz">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="ZgV-84-HfK">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="0be-ix-w5r" kind="modal" identifier="editProfile" id="apk-6d-qYq"/>
                             </connections>
@@ -166,17 +167,20 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m8b-Ml-QXe">
                                 <rect key="frame" x="149" y="90" width="436" height="17"/>
+                                <color key="tintColor" red="0.49006857199999998" green="0.78800531279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4h-PI-isg">
                                 <rect key="frame" x="149" y="139" width="436" height="17"/>
+                                <color key="tintColor" red="0.49006857199999998" green="0.78800531279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NHX-h2-wDN">
                                 <rect key="frame" x="149" y="189" width="435.5" height="17"/>
+                                <color key="tintColor" red="0.49006857199999998" green="0.78800531279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
                             </textField>
@@ -196,15 +200,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="pOx-cu-tWR"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.10372836069999999" green="0.42005481020000002" blue="0.0087750488480000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Edit Profile" id="3WT-qn-Q0J">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="O7V-Zo-fwo">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="cancelEditingPressed:" destination="0be-ix-w5r" id="c6s-lq-NKL"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="8cn-65-vWQ">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="saveProfile:" destination="0be-ix-w5r" id="Y3n-qD-I1g"/>
                                             </connections>
@@ -329,18 +335,18 @@
         <scene sceneID="Hpd-eC-ipE">
             <objects>
                 <tabBarController id="7CF-3D-40G" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="ata-3J-Wdj">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ata-3J-Wdj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.10372836069999999" green="0.42005481020000002" blue="0.0087750488480000007" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.967741935483871" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="value" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="selectedImageTintColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="value" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -385,7 +391,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="todoItemLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXb-mk-qtZ">
                                             <rect key="frame" x="67" y="11" width="525" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -402,16 +408,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your TODO List" id="Wos-vD-G0j">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="UXD-Ko-G8l">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="UXD-Ko-G8l">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="5t7-uL-Ld3" kind="presentation" identifier="addTask" id="Mdv-eY-5bC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="UXD-Ko-G8l" id="LYB-h1-1mf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkS-1T-ewb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="691" y="706"/>
+            <point key="canvasLocation" x="711" y="934"/>
         </scene>
         <!--Add Task View Controller-->
         <scene sceneID="q18-rz-VfH">
@@ -430,15 +440,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="a2p-4Y-H68"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.1058823529" green="0.41960784309999999" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Add Task" id="IhH-7b-Qol">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HSj-rA-j1c">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="HSj-rA-j1c">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="cancelAddingPressed:" destination="5t7-uL-Ld3" id="NGJ-3C-SsG"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kCj-D8-Hou">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="kCj-D8-Hou">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="savebuttonPressed:" destination="5t7-uL-Ld3" id="IpH-Xj-l2K"/>
                                             </connections>
@@ -460,6 +472,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-84-Ktd">
                                 <rect key="frame" x="28" y="109" width="544" height="17"/>
+                                <color key="tintColor" red="0.49006857199999998" green="0.78800531279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -509,10 +522,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hpu-VB-brc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="-15" title="Overview" image="overview" id="ilj-bo-aJR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="xGS-aF-WWc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="xGS-aF-WWc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.10372836068686654" green="0.42005481020942403" blue="0.0087750488482473566" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -572,6 +585,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Courses" id="09Z-3c-ltu">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="6hG-lX-QO1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="rvy-as-IUi" kind="presentation" identifier="addCourse" id="MG8-F1-6rL"/>
                             </connections>
@@ -623,6 +637,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFS-mE-P6B">
                                 <rect key="frame" x="135" y="83" width="440" height="17"/>
+                                <color key="tintColor" red="0.49006857199999998" green="0.78800531279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -654,17 +669,19 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="KdV-Kz-eVW"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.10372836069999999" green="0.42005481020000002" blue="0.0087750488480000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Add Course" id="7VE-VF-ufN">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="k7G-Ww-d3T">
                                             <inset key="imageInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="cancelAddingCourse:" destination="rvy-as-IUi" id="T9P-pv-SeD"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="9T1-2c-9gX">
                                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="saveProfile:" destination="rvy-as-IUi" id="jJV-Ow-NT8"/>
                                             </connections>
@@ -680,6 +697,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ql-DF-y9z">
                                 <rect key="frame" x="135" y="211" width="439.5" height="17"/>
+                                <color key="tintColor" red="0.49006857199999998" green="0.78800531279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -756,7 +774,14 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Add Course" id="843-vi-mtg">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="eQd-JL-rlz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelAddingCourse:" destination="rvy-as-IUi" id="1fP-Do-thA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="ok9-hx-Cij">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="saveProfile:" destination="rvy-as-IUi" id="s1N-rd-Kv8"/>
                             </connections>
@@ -774,7 +799,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7py-4L-c19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3323" y="238"/>
+            <point key="canvasLocation" x="3323" y="254"/>
         </scene>
         <!--Course Detail View Controller-->
         <scene sceneID="yRj-pK-N6k">
@@ -793,15 +818,20 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="7ab-Bd-bW1"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.1058823529" green="0.41960784309999999" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="9MG-ge-9YK">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ori-dt-bpN">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="pressedCancelButton:" destination="07V-JJ-uzs" id="Huz-x1-Tps"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Su9-FW-TFF">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="rvy-as-IUi" kind="show" identifier="editCourse" id="NRb-7k-855"/>
                                             </connections>
@@ -871,7 +901,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="todoItemLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjI-jG-ukb">
                                                     <rect key="frame" x="46" y="10" width="530" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -908,7 +938,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hi-FF-0Q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044" y="1034"/>
+            <point key="canvasLocation" x="2606" y="1034"/>
         </scene>
         <!--Courses-->
         <scene sceneID="bDl-dq-Wxh">
@@ -919,7 +949,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="jMr-yt-5ha">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.10588235294117647" green="0.41960784313725491" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -939,7 +969,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BbK-We-R35">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1058823529" green="0.41960784309999999" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -948,14 +978,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZt-m7-xue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-121" y="706"/>
+            <point key="canvasLocation" x="-141" y="934"/>
         </scene>
     </scenes>
     <resources>
         <image name="courses" width="30" height="30"/>
         <image name="overview" width="30" height="30"/>
         <image name="todo" width="30" height="30"/>
-        <image name="unchecked" width="50" height="50"/>
+        <image name="unchecked" width="264" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NRb-7k-855"/>

@@ -10,6 +10,8 @@ import UIKit
 
 class TodoListTableViewController: UITableViewController {
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     var courses: [Course]!
     var filledIndex = [Int]()
 
@@ -18,15 +20,19 @@ class TodoListTableViewController: UITableViewController {
         
         setCourses()
         getAmountOfSections()
+        checkForAddingTasks()
         
         tableView.dataSource = self
         tableView.delegate = self
         
+        // add edit button and customize color
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
     }
     
     override func viewWillAppear(animated: Bool) {
         setCourses()
+        checkForAddingTasks()
         numberOfSectionsInTableView(self.tableView)
         self.tableView.reloadData()
     }
@@ -50,6 +56,15 @@ class TodoListTableViewController: UITableViewController {
                 filledIndex.append(index)
             }
             index++
+        }
+    }
+    
+    private func checkForAddingTasks() {
+        // only enabel add tasks if there are open courses added
+        if(courses.count == 0 || filledIndex.count == 0) {
+            addButton.enabled = false
+        } else {
+            addButton.enabled = true
         }
     }
 

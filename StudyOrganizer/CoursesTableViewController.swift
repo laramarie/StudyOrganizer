@@ -24,7 +24,9 @@ class CoursesTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        // add edit button and customize color
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
     }
     
     override func viewWillAppear(animated: Bool) {
