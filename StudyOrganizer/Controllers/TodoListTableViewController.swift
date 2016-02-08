@@ -31,6 +31,7 @@ class TodoListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        // reload data before showing tab
         setCourses()
         checkForAddingTasks()
         numberOfSectionsInTableView(self.tableView)
@@ -47,12 +48,10 @@ class TodoListTableViewController: UITableViewController {
     }
     
     private func getAmountOfSections() {
-        var count = 0
         var index = 0
         filledIndex = []
         for course in courses {
             if(course.todo.count > 0) {
-                count++
                 filledIndex.append(index)
             }
             index++
@@ -60,11 +59,13 @@ class TodoListTableViewController: UITableViewController {
     }
     
     private func checkForAddingTasks() {
-        // only enabel add tasks if there are open courses added
-        if(courses.count == 0 || filledIndex.count == 0) {
-            addButton.enabled = false
-        } else {
-            addButton.enabled = true
+        // only enable add tasks if there are open courses added
+        addButton.enabled = false
+        for course in courses {
+            if(!course.done) {
+                addButton.enabled = true
+                break
+            }
         }
     }
 
@@ -82,13 +83,18 @@ class TodoListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("todoItem", forIndexPath: indexPath) as?
         TodoItemTableViewCell
         
+        // set delegate for cell
         cell!.delegate = self
         
         // Fetches the appropriate course for the data source layout.
+        // sets data to cell
         let course = courses[filledIndex[indexPath.section]]
         cell!.todoItemLabel.text = course.todo[indexPath.row].descript
+        cell!.courseName = course.name
         if(course.todo[indexPath.row].done) {
             cell!.checkButton.setState(true)
+        } else {
+            cell!.checkButton.setState(false)
         }
         
         return cell!
@@ -110,12 +116,14 @@ class TodoListTableViewController: UITableViewController {
             filledIndex.removeAtIndex(indexPath.section)
             getAmountOfSections()
             saveCourses()
+            
             if(courses[filledIndex[indexPath.section]].todo.count == 1) {
                 // last element in section being deleted
                 tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
             } else {
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
+            
             viewWillAppear(true)
             self.tableView.reloadData()
         }
@@ -159,14 +167,20 @@ extension TodoListTableViewController: SaveTaskDelegate {
 }
 
 extension TodoListTableViewController: TodoItemCheckedDelegate {
-    func didUpdateTodoList(todoName: String) -> Bool {
+    func didUpdateTodoList(todoName: String, courseName: String) -> Bool {
+        // find matching course
         for course in courses {
-            for todoItem in course.todo {
-                if todoName == todoItem.descript {
-                    if todoItem.done {
-                        todoItem.done = false
-                    } else {
-                        todoItem.done = true
+            if(courseName == course.name) {
+                // find matching todo item in matching course
+                for todoItem in course.todo {
+                    if todoName == todoItem.descript {
+                        // update todo item
+                        if todoItem.done {
+                            todoItem.done = false
+                        } else {
+                            todoItem.done = true
+                        }
+                        break
                     }
                 }
             }

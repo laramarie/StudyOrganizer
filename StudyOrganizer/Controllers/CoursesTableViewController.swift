@@ -223,6 +223,7 @@ extension CoursesTableViewController: SaveTodoDelegate {
                 break
             }
         }
+        
         getAmountOfCourses()
         
         // Save the course.

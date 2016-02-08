@@ -87,10 +87,11 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Disable the Save button while editing.
         saveButton.enabled = false
     }
+    
     @IBAction func cancelAddingPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
         descriptionLabel.text = ""
-        print("Editing cancelled")
+        print("Adding cancelled")
     }
     
     @IBAction func savebuttonPressed(sender: UIBarButtonItem) {
@@ -100,7 +101,7 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             courses[notFinishedCourses[index]].todo.append(newTask)
             if let success = delegate?.didPressSaveTask(courses!) where success {
                 self.dismissViewControllerAnimated(true, completion: nil)
-                print("Profile saved")
+                print("Task saved")
             }
         }
     }

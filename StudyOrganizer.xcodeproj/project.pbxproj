@@ -12,7 +12,6 @@
 		8F36E95C1C52CABF00E36C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F36E95B1C52CABF00E36C14 /* Assets.xcassets */; };
 		8F36E95F1C52CABF00E36C14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F36E95D1C52CABF00E36C14 /* LaunchScreen.storyboard */; };
 		8F36E96A1C52CAC000E36C14 /* StudyOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9691C52CAC000E36C14 /* StudyOrganizerTests.swift */; };
-		8F36E9751C52CF7A00E36C14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9741C52CF7A00E36C14 /* User.swift */; };
 		8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F36E9561C52CABF00E36C14 /* OverviewController.swift */; };
 		8F5773EF1C5FCF4F00B85393 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */; };
 		8F5773F11C5FE7A100B85393 /* TodoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */; };
@@ -20,12 +19,13 @@
 		8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */; };
 		8F83F1331C693E19000365B2 /* TodoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83F1321C693E19000365B2 /* TodoItemTableViewCell.swift */; };
 		8FBF4AA61C6514C200317C17 /* CoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */; };
-		8FBF4AA81C65208700317C17 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF4AA71C65208700317C17 /* Task.swift */; };
 		8FC11AD01C5C299800694FDE /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11ACF1C5C299800694FDE /* .travis.yml */; };
-		8FD3772A1C56A1F400811189 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377291C56A1F400811189 /* Course.swift */; };
 		8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD377311C56B8D600811189 /* AddCourseViewController.swift */; };
+		8FD45C2E1C694FBB00D02BE1 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD45C2C1C694FBB00D02BE1 /* Course.swift */; };
+		8FD45C2F1C694FBB00D02BE1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD45C2D1C694FBB00D02BE1 /* Task.swift */; };
+		8FD45C311C694FC300D02BE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD45C301C694FC300D02BE1 /* User.swift */; };
+		8FD45C331C69529400D02BE1 /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD45C321C69529400D02BE1 /* CheckButton.swift */; };
 		8FE573CD1C58F08900A04C52 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */; };
-		8FFEA1B91C67980D00E4F697 /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFEA1B81C67980D00E4F697 /* CheckButton.swift */; };
 		8FFEA1BB1C679A0600E4F697 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFEA1BA1C679A0600E4F697 /* TodoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		8F36E9511C52CABF00E36C14 /* StudyOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F36E9541C52CABF00E36C14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8F36E9561C52CABF00E36C14 /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
+		8F36E9561C52CABF00E36C14 /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OverviewController.swift; path = Controllers/OverviewController.swift; sourceTree = "<group>"; };
 		8F36E9591C52CABF00E36C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F36E95B1C52CABF00E36C14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F36E95E1C52CABF00E36C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,20 +50,20 @@
 		8F36E9651C52CAC000E36C14 /* StudyOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F36E9691C52CAC000E36C14 /* StudyOrganizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyOrganizerTests.swift; sourceTree = "<group>"; };
 		8F36E96B1C52CAC000E36C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8F36E9741C52CF7A00E36C14 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
-		8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListTableViewController.swift; sourceTree = "<group>"; };
-		8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
-		8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		8F83F1321C693E19000365B2 /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItemTableViewCell.swift; sourceTree = "<group>"; };
-		8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewCell.swift; sourceTree = "<group>"; };
-		8FBF4AA71C65208700317C17 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseDetailViewController.swift; path = Controllers/CourseDetailViewController.swift; sourceTree = "<group>"; };
+		8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoListTableViewController.swift; path = Controllers/TodoListTableViewController.swift; sourceTree = "<group>"; };
+		8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTaskViewController.swift; path = Controllers/AddTaskViewController.swift; sourceTree = "<group>"; };
+		8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		8F83F1321C693E19000365B2 /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoItemTableViewCell.swift; path = Controllers/TodoItemTableViewCell.swift; sourceTree = "<group>"; };
+		8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoursesTableViewCell.swift; path = Controllers/CoursesTableViewCell.swift; sourceTree = "<group>"; };
 		8FC11ACF1C5C299800694FDE /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
-		8FD377291C56A1F400811189 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		8FD377311C56B8D600811189 /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
-		8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
-		8FFEA1B81C67980D00E4F697 /* CheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
-		8FFEA1BA1C679A0600E4F697 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		8FD377311C56B8D600811189 /* AddCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCourseViewController.swift; path = Controllers/AddCourseViewController.swift; sourceTree = "<group>"; };
+		8FD45C2C1C694FBB00D02BE1 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Course.swift; path = Models/Course.swift; sourceTree = "<group>"; };
+		8FD45C2D1C694FBB00D02BE1 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Models/Task.swift; sourceTree = "<group>"; };
+		8FD45C301C694FC300D02BE1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		8FD45C321C69529400D02BE1 /* CheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckButton.swift; path = Controllers/CheckButton.swift; sourceTree = "<group>"; };
+		8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoursesTableViewController.swift; path = Controllers/CoursesTableViewController.swift; sourceTree = "<group>"; };
+		8FFEA1BA1C679A0600E4F697 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoTableViewCell.swift; path = Controllers/TodoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +84,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F2E78431C69540A00614EA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8F36E95D1C52CABF00E36C14 /* LaunchScreen.storyboard */,
+				8F36E9581C52CABF00E36C14 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8F2E78441C69542000614EA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FD45C301C694FC300D02BE1 /* User.swift */,
+				8FD45C2C1C694FBB00D02BE1 /* Course.swift */,
+				8FD45C2D1C694FBB00D02BE1 /* Task.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		8F2E78451C69543700614EA3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8FD45C321C69529400D02BE1 /* CheckButton.swift */,
+				8F2E78461C69544E00614EA3 /* OverviewTab */,
+				8F2E78471C69546200614EA3 /* TodoTab */,
+				8F2E78481C69549700614EA3 /* CoursesTab */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8F2E78461C69544E00614EA3 /* OverviewTab */ = {
+			isa = PBXGroup;
+			children = (
+				8F36E9561C52CABF00E36C14 /* OverviewController.swift */,
+				8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */,
+			);
+			name = OverviewTab;
+			sourceTree = "<group>";
+		};
+		8F2E78471C69546200614EA3 /* TodoTab */ = {
+			isa = PBXGroup;
+			children = (
+				8F83F1321C693E19000365B2 /* TodoItemTableViewCell.swift */,
+				8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */,
+				8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */,
+			);
+			name = TodoTab;
+			sourceTree = "<group>";
+		};
+		8F2E78481C69549700614EA3 /* CoursesTab */ = {
+			isa = PBXGroup;
+			children = (
+				8FD377311C56B8D600811189 /* AddCourseViewController.swift */,
+				8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */,
+				8FFEA1BA1C679A0600E4F697 /* TodoTableViewCell.swift */,
+				8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */,
+				8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */,
+			);
+			name = CoursesTab;
+			sourceTree = "<group>";
+		};
 		8F36E9481C52CABF00E36C14 = {
 			isa = PBXGroup;
 			children = (
@@ -107,23 +168,10 @@
 			isa = PBXGroup;
 			children = (
 				8F36E9541C52CABF00E36C14 /* AppDelegate.swift */,
-				8F5BD11A1C542D80002B5D6B /* ProfileViewController.swift */,
-				8F36E9561C52CABF00E36C14 /* OverviewController.swift */,
-				8FD377311C56B8D600811189 /* AddCourseViewController.swift */,
-				8F83F1321C693E19000365B2 /* TodoItemTableViewCell.swift */,
-				8F36E9581C52CABF00E36C14 /* Main.storyboard */,
-				8FFEA1BA1C679A0600E4F697 /* TodoTableViewCell.swift */,
-				8FFEA1B81C67980D00E4F697 /* CheckButton.swift */,
-				8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */,
-				8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */,
-				8FD377291C56A1F400811189 /* Course.swift */,
-				8FBF4AA71C65208700317C17 /* Task.swift */,
-				8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */,
-				8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */,
-				8F36E9741C52CF7A00E36C14 /* User.swift */,
+				8F2E78441C69542000614EA3 /* Models */,
+				8F2E78431C69540A00614EA3 /* View */,
+				8F2E78451C69543700614EA3 /* Controllers */,
 				8F36E95B1C52CABF00E36C14 /* Assets.xcassets */,
-				8F36E95D1C52CABF00E36C14 /* LaunchScreen.storyboard */,
-				8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */,
 				8F36E9601C52CABF00E36C14 /* Info.plist */,
 			);
 			path = StudyOrganizer;
@@ -241,21 +289,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD45C2E1C694FBB00D02BE1 /* Course.swift in Sources */,
 				8FE573CD1C58F08900A04C52 /* CoursesTableViewController.swift in Sources */,
 				8FD377321C56B8D600811189 /* AddCourseViewController.swift in Sources */,
-				8FD3772A1C56A1F400811189 /* Course.swift in Sources */,
 				8FFEA1BB1C679A0600E4F697 /* TodoTableViewCell.swift in Sources */,
 				8F36E9761C52D96F00E36C14 /* OverviewController.swift in Sources */,
-				8FBF4AA81C65208700317C17 /* Task.swift in Sources */,
 				8F5BD11B1C542D80002B5D6B /* ProfileViewController.swift in Sources */,
-				8FFEA1B91C67980D00E4F697 /* CheckButton.swift in Sources */,
+				8FD45C331C69529400D02BE1 /* CheckButton.swift in Sources */,
 				8F5773F31C5FF15500B85393 /* AddTaskViewController.swift in Sources */,
+				8FD45C311C694FC300D02BE1 /* User.swift in Sources */,
 				8FBF4AA61C6514C200317C17 /* CoursesTableViewCell.swift in Sources */,
 				8F36E9551C52CABF00E36C14 /* AppDelegate.swift in Sources */,
 				8F5773F11C5FE7A100B85393 /* TodoListTableViewController.swift in Sources */,
 				8F5773EF1C5FCF4F00B85393 /* CourseDetailViewController.swift in Sources */,
+				8FD45C2F1C694FBB00D02BE1 /* Task.swift in Sources */,
 				8F83F1331C693E19000365B2 /* TodoItemTableViewCell.swift in Sources */,
-				8F36E9751C52CF7A00E36C14 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,7 +30,7 @@ class CheckButton: UIButton {
         }
     }
         
-   override func awakeFromNib() {
+    override func awakeFromNib() {
         self.addTarget(self, action: "buttonClicked:", forControlEvents:UIControlEvents.TouchUpInside)
     }
         

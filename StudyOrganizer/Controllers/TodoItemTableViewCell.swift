@@ -9,13 +9,16 @@
 import UIKit
 
 protocol TodoItemCheckedDelegate: class {
-    func didUpdateTodoList(todoName: String) -> Bool
+    func didUpdateTodoList(todoName: String, courseName: String) -> Bool
 }
 
 class TodoItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var todoItemLabel: UILabel!
     @IBOutlet weak var checkButton: CheckButton!
+    
+    // being passed by table view instantiation as ID for course
+    var courseName = ""
     
     weak var delegate: TodoItemCheckedDelegate?
     
@@ -25,20 +28,11 @@ class TodoItemTableViewCell: UITableViewCell {
         
         self.checkButton.delegate = self
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-    @IBAction func checkButtonClicked(sender: CheckButton) {
-    }
 }
 
 extension TodoItemTableViewCell: CheckButtonClickedDelegate {
     func didSelectCheckButton(isChecked: Bool) -> Bool {
-        delegate?.didUpdateTodoList(todoItemLabel.text!)
+        delegate?.didUpdateTodoList(todoItemLabel.text!, courseName: courseName)
         return true
     }
 }

@@ -200,7 +200,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="pOx-cu-tWR"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.46928435564041138" green="0.87119209766387939" blue="0.46796154975891113" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Edit Profile" id="3WT-qn-Q0J">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="O7V-Zo-fwo">
@@ -335,18 +335,19 @@
         <scene sceneID="Hpd-eC-ipE">
             <objects>
                 <tabBarController id="7CF-3D-40G" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ata-3J-Wdj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.463248610496521" green="0.8525158166885376" blue="0.44849124550819397" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.967741935483871" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.73723958333333339" green="0.73723958333333339" blue="0.73723958333333339" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="selectedImageTintColor">
-                                <color key="value" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.9849158653846154" green="0.9849158653846154" blue="0.9849158653846154" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -384,9 +385,6 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lz-eF-8Hn" customClass="CheckButton" customModule="StudyOrganizer" customModuleProvider="target">
                                             <rect key="frame" x="23" y="7" width="30" height="30"/>
                                             <state key="normal" image="unchecked"/>
-                                            <connections>
-                                                <action selector="checkButtonClicked:" destination="i8J-de-WWn" eventType="touchUpInside" id="vlJ-Qd-eQb"/>
-                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="todoItemLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXb-mk-qtZ">
                                             <rect key="frame" x="67" y="11" width="525" height="21"/>
@@ -397,8 +395,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkButton" destination="4lz-eF-8Hn" id="0aO-Lk-aJm"/>
-                                    <outlet property="todoItemLabel" destination="HXb-mk-qtZ" id="nz9-LI-xne"/>
+                                    <outlet property="checkButton" destination="4lz-eF-8Hn" id="Dzj-uf-X67"/>
+                                    <outlet property="todoItemLabel" destination="HXb-mk-qtZ" id="Xn4-36-kKn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -415,6 +413,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="addButton" destination="UXD-Ko-G8l" id="LYB-h1-1mf"/>
                     </connections>
@@ -440,7 +439,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="a2p-4Y-H68"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.46928435564041138" green="0.87119209766387939" blue="0.46796154975891113" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Add Task" id="IhH-7b-Qol">
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="HSj-rA-j1c">
@@ -506,6 +505,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="coursePicker" destination="yt2-Ux-lJO" id="WG0-hR-NgL"/>
                         <outlet property="descriptionLabel" destination="C2W-84-Ktd" id="BEs-iX-6GC"/>
@@ -525,7 +525,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="xGS-aF-WWc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.46289423108100891" green="0.83742064237594604" blue="0.43873751163482666" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -669,7 +669,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="KdV-Kz-eVW"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.46928435564041138" green="0.87119209766387939" blue="0.46796154975891113" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Add Course" id="7VE-VF-ufN">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="k7G-Ww-d3T">
@@ -787,6 +787,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="datePicker" destination="Odx-e5-NOk" id="Xfp-ZC-11z"/>
                         <outlet property="doneSwitch" destination="ASU-4c-G7w" id="Snl-Hj-Z6x"/>
@@ -818,9 +819,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="7ab-Bd-bW1"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.46928435564041138" green="0.87119209766387939" blue="0.46796154975891113" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="9MG-ge-9YK">
@@ -894,9 +895,6 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UB9-OS-qDY" customClass="CheckButton" customModule="StudyOrganizer" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="5" width="30" height="30"/>
                                                     <state key="normal" title="Button" image="unchecked"/>
-                                                    <connections>
-                                                        <action selector="checkButtonClicked:" destination="seX-sA-4Ji" eventType="touchUpInside" id="taE-L5-rH1"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="todoItemLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjI-jG-ukb">
                                                     <rect key="frame" x="46" y="10" width="530" height="21"/>
@@ -928,6 +926,7 @@
                             <constraint firstItem="blD-f1-chu" firstAttribute="leading" secondItem="uC1-vy-yj1" secondAttribute="leadingMargin" constant="-12" id="zZD-KI-IH3"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="ectsLabel" destination="bjq-Ia-Bhg" id="mPb-yW-J3o"/>
                         <outlet property="examLabel" destination="Sgv-ad-FfB" id="yeK-tV-eV3"/>
@@ -949,7 +948,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="jMr-yt-5ha">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.46928435564041138" green="0.87119209766387939" blue="0.46796154975891113" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -966,10 +965,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vqF-Zt-bmh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="TODO" image="todo" id="lmP-El-jvy"/>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BbK-We-R35">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.46928435564041138" green="0.87119209766387939" blue="0.46796154975891113" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

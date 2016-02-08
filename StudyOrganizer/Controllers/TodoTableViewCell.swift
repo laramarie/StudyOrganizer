@@ -25,15 +25,6 @@ class TodoTableViewCell: UITableViewCell {
         
         self.checkButton.delegate = self
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-    @IBAction func checkButtonClicked(sender: CheckButton) {
-    }
 }
 
 extension TodoTableViewCell: CheckButtonClickedDelegate {

@@ -25,7 +25,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Study Organizer">
                                         <attributes>
-                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="40" name="HelveticaNeue-UltraLight"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.73725490196078436" green="0.88235294117647056" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.60539507865905762" green="0.86607009172439575" blue="0.60587656497955322" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="iSg-MP-uik" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="103" id="5lg-iU-QNE"/>
                             <constraint firstItem="iSg-MP-uik" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7R7-PZ-xTh"/>
@@ -42,6 +42,7 @@
                             <constraint firstItem="djF-Bk-fjJ" firstAttribute="top" secondItem="iSg-MP-uik" secondAttribute="bottom" constant="38" id="sdg-wB-cTe"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
