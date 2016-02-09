@@ -88,16 +88,20 @@ class AddCourseViewController: UIViewController {
     
     @IBAction func saveProfile(sender: UIBarButtonItem) {
         checkValidCourse()
+        
         if(course != nil) {
+            //update existing course
             course?.name = nameField.text!
             course?.ECTS = Int(ectsSlider.value)
-            course?.done = doneSwitch.enabled
+            course?.done = doneSwitch.on
             course?.grade = Double(gradeField.text!)!
             course?.exam = datePicker.date
         } else if(gradeField.text == ""){
+            // add new course with default grade value (0.0)
             course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: 0, done: doneSwitch.on,
                 todo: [], exam: datePicker.date)
         } else {
+            // add new course with empty todo list
             course = Course(name: nameField.text!, ECTS: Int(ectsSlider.value), grade: Double(gradeField.text!)!,
                 done: doneSwitch.on, todo: [], exam: datePicker.date)
         }

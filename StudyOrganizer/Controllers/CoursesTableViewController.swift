@@ -45,7 +45,26 @@ class CoursesTableViewController: UITableViewController {
             numOfActualCourses = 0
             numOfOldCourses = 0
         }
-
+    }
+    
+    // Get the number of actual/old courses
+    func getAmountOfCourses() {
+        courses.sortInPlace { $0.name < $1.name }
+        numOfOldCourses = 0
+        numOfActualCourses = 0
+        oldIndex = []
+        actualIndex = []
+        var counter = 0
+        for course in courses {
+            if(course.done) {
+                numOfOldCourses?++
+                oldIndex.append(counter)
+            } else {
+                numOfActualCourses?++
+                actualIndex.append(counter)
+            }
+            counter++
+        }
     }
 
     // MARK: - Table view data source
@@ -105,33 +124,33 @@ class CoursesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
         forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            if(actualIndex.count > 0 && courses[indexPath.row] == courses[actualIndex[indexPath.row]]) {
-                courses.removeAtIndex(actualIndex[indexPath.row])
-                actualIndex.removeAtIndex(indexPath.row)
-            } else {
-                courses.removeAtIndex(oldIndex[indexPath.row])
-                oldIndex.removeAtIndex(indexPath.row)
-            }
-            getAmountOfCourses()
-            saveCourses()
-            
-            // Delete row from View
             switch(indexPath.section) {
             case 0:
-                if(actualIndex.count == 1) {
+                // Delete the corresponding element from the data source
+                courses.removeAtIndex(actualIndex[indexPath.row])
+                actualIndex.removeAtIndex(indexPath.row)
+                getAmountOfCourses()
+                saveCourses()
+                
+                // Delete row/section from View
+                if(actualIndex.count == 0) {
                     tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
                 } else {
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 }
-                break
             case 1:
-                if(oldIndex.count == 1) {
+                // Delete the corresponding element from the data source
+                courses.removeAtIndex(oldIndex[indexPath.row])
+                oldIndex.removeAtIndex(indexPath.row)
+                getAmountOfCourses()
+                saveCourses()
+                
+                // Delete row/section from View
+                if(oldIndex.count == 0) {
                     tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
                 } else {
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 }
-                break
             default:
                 break
             }
@@ -148,13 +167,13 @@ class CoursesTableViewController: UITableViewController {
                 let cell = sender as? UITableViewCell
                 let indexPath = tableView.indexPathForCell(cell!)
                 destinationViewController.delegate = self
+                
+                // pass right course item
                 switch(indexPath!.section) {
                 case 0:
                     destinationViewController.course = courses[actualIndex[indexPath!.row]]
-                    break
                 case 1:
                     destinationViewController.course = courses[oldIndex[indexPath!.row]]
-                    break
                 default:
                     break
                 }
@@ -175,26 +194,6 @@ class CoursesTableViewController: UITableViewController {
     
     func loadCourses() -> [Course]? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Course.ArchiveURL.path!) as? [Course]
-    }
-    
-    // MARK: Get the number of actual/old courses
-    func getAmountOfCourses() {
-        courses.sortInPlace { $0.name < $1.name }
-        numOfOldCourses = 0
-        numOfActualCourses = 0
-        oldIndex = []
-        actualIndex = []
-        var counter = 0
-        for course in courses {
-            if(course.done) {
-                numOfOldCourses?++
-                oldIndex.append(counter)
-            } else {
-                numOfActualCourses?++
-                actualIndex.append(counter)
-            }
-            counter++
-        }
     }
 }
 

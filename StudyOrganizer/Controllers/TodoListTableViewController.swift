@@ -61,7 +61,7 @@ class TodoListTableViewController: UITableViewController {
     }
     
     private func checkForAddingTasks() {
-        // only enable add tasks if there are open courses added and sent alert if not
+        // only enable add tasks if there are open courses added and send alert if not
         addButton.enabled = false
         for course in courses {
             if(!course.done) {
@@ -193,6 +193,7 @@ extension TodoListTableViewController: TodoItemCheckedDelegate {
                         break
                     }
                 }
+                break
             }
         }
         saveCourses()

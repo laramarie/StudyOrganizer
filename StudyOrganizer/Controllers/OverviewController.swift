@@ -31,19 +31,19 @@ class OverviewController: UIViewController {
         updateView()
     }
     
+    private func updateView() {
+        nameLabel.text = user?.name
+        universityLabel.text = user?.university
+        fieldLabel.text = user?.fieldOfStudies
+        userImageView.image = user?.image
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationViewController = segue.destinationViewController as? ProfileViewController
             where segue.identifier == "editProfile" {
                 destinationViewController.user = user
                 destinationViewController.delegate = self
             }
-    }
-    
-    private func updateView() {
-        nameLabel.text = user?.name
-        universityLabel.text = user?.university
-        fieldLabel.text = user?.fieldOfStudies
-        userImageView.image = user?.image
     }
     
     // MARK: NSCoding
@@ -67,9 +67,12 @@ class OverviewController: UIViewController {
 extension OverviewController: SaveProfileDelegate {
     func didPressSaveProfile(user: User) -> Bool {
         self.user = user
+        
         // Save the user.
         saveUser()
+        
         updateView()
+        
         return true
     }
 }

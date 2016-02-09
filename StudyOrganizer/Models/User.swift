@@ -20,7 +20,7 @@ class User: NSObject, NSCoding {
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("user")
     
-    init?(name: String, university: String, fieldOfStudies: String, image: UIImage){
+    init?(name: String, university: String, fieldOfStudies: String, image: UIImage) {
         self.name = name
         self.university = university
         self.fieldOfStudies = fieldOfStudies

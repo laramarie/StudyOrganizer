@@ -27,8 +27,6 @@ class CourseDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        // Do any additional setup after loading the view.
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -41,6 +39,7 @@ class CourseDetailViewController: UIViewController {
     }
     
     private func initView() {
+        // set labels
         titelLabel.title = course.name
         ectsLabel.text = "ECTS: \(course.ECTS)"
         let date = NSDateFormatter()
@@ -65,8 +64,9 @@ class CourseDetailViewController: UIViewController {
 
     
     // MARK: Navigation
-    // set content and delegate for editing course details
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // set content and delegate for editing course details
         if let destinationViewController = segue.destinationViewController as? AddCourseViewController
             where segue.identifier == "editCourse" {
                 destinationViewController.course = course
@@ -75,6 +75,7 @@ class CourseDetailViewController: UIViewController {
     }
     
     // MARK: IBActions
+    
     @IBAction func pressedCancelButton(sender: UIBarButtonItem) {
         if let success = delegate?.didPressSaveTodo(course!) where success {
             self.dismissViewControllerAnimated(false, completion: nil)
@@ -119,22 +120,7 @@ extension CourseDetailViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-        forRowAtIndexPath indexPath: NSIndexPath) {
-            if editingStyle == .Delete {
-                // Delete the row from the data source
-                course.todo.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                
-            } else if editingStyle == .Insert {
-                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-                // do nothing
-            }
-            
-            self.tableView.reloadData()
+        return false
     }
 }
 
