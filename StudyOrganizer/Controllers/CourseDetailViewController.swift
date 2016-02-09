@@ -12,7 +12,7 @@ protocol SaveTodoDelegate: class {
     func didPressSaveTodo(course: Course) -> Bool
 }
 
-class CourseDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CourseDetailViewController: UIViewController {
 
     @IBOutlet weak var titelLabel: UINavigationItem!
     @IBOutlet weak var ectsLabel: UILabel!
@@ -40,7 +40,7 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.reloadData()
     }
     
-    func initView() {
+    private func initView() {
         titelLabel.title = course.name
         ectsLabel.text = "ECTS: \(course.ECTS)"
         let date = NSDateFormatter()
@@ -55,7 +55,7 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    func daysBetweenDate(startDate: NSDate, endDate: NSDate) -> Int {
+    private func daysBetweenDate(startDate: NSDate, endDate: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         
         let components = calendar.components([.Day], fromDate: startDate, toDate: endDate, options: [])
@@ -63,6 +63,28 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         return components.day
     }
 
+    
+    // MARK: Navigation
+    // set content and delegate for editing course details
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationViewController = segue.destinationViewController as? AddCourseViewController
+            where segue.identifier == "editCourse" {
+                destinationViewController.course = course
+                destinationViewController.delegate = self
+        }
+    }
+    
+    // MARK: IBActions
+    @IBAction func pressedCancelButton(sender: UIBarButtonItem) {
+        if let success = delegate?.didPressSaveTodo(course!) where success {
+            self.dismissViewControllerAnimated(false, completion: nil)
+            print("Course saved")
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension CourseDetailViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -82,11 +104,13 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
         
         // Fetches the appropriate String for the data source layout.
         cell!.todoItemLabel.text = course.todo[indexPath.row].descript
-
+        
         if(course.todo[indexPath.row].done) {
             cell!.checkButton.setState(true)
+        } else {
+            cell!.checkButton.setState(false)
         }
-
+        
         return cell!
     }
     
@@ -100,36 +124,17 @@ class CourseDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
         forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            course.todo.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            if editingStyle == .Delete {
+                // Delete the row from the data source
+                course.todo.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                
+            } else if editingStyle == .Insert {
+                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+                // do nothing
+            }
             
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-            // do nothing
-        }
-        
-        self.tableView.reloadData()
-    }
-    
-    // MARK: Navigation
-    // set content and delegate for editing course details
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destinationViewController = segue.destinationViewController as? AddCourseViewController
-            where segue.identifier == "editCourse" {
-                destinationViewController.course = course
-                destinationViewController.delegate = self
-        }
-    }
-    
-    // MARK: IBActions
-    @IBAction func pressedCancelButton(sender: UIBarButtonItem) {
-        if let success = delegate?.didPressSaveTodo(course!) where success {
-            self.dismissViewControllerAnimated(false, completion: nil)
-            print("Course saved")
-        }
-        self.dismissViewControllerAnimated(true, completion: nil)
+            self.tableView.reloadData()
     }
 }
 

@@ -12,7 +12,7 @@ protocol SaveCourseDelegate: class {
     func didPressSaveCourse(course: Course) -> Bool
 }
 
-class AddCourseViewController: UIViewController, UITextFieldDelegate {
+class AddCourseViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var ectsLabel: UILabel!
@@ -29,46 +29,31 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // cannot save before adding information
+        saveButton.enabled = false
+        
+        initializeView()
+        
+        nameField.delegate = self
+        gradeField.delegate = self
+        
+        
+        self.addBottomLineToTextField(nameField)
+        self.addBottomLineToTextField(gradeField)
+    }
+    
+    private func initializeView() {
         if(course != nil) {
             nameField.text = course?.name
             if(course?.ECTS != nil) {
                 ectsSlider.value = Float(course!.ECTS)
                 ectsLabel.text = String(course!.ECTS)
             }
-            doneSwitch.enabled = (course?.done)!
+            doneSwitch.on = (course?.done)!
             gradeField.text = String((course?.grade)!)
             datePicker.date = (course?.exam)!
-        }
-        
-        nameField.delegate = self
-        gradeField.delegate = self
-        
-        self.addBottomLineToTextField(nameField)
-        self.addBottomLineToTextField(gradeField)
-    }
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        saveButton.enabled = true
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        // Disable the Save button while editing.
-        saveButton.enabled = false
-    }
-    
-    private func checkValidCourse() {
-        // Disable the Save button if the text field is empty.
-        if (nameField.text == "" || gradeField.text == "") {
-            saveButton.enabled = false
-        } else {
+            
+            // enable save button for saving changes on UISwitch or DatePicker
             saveButton.enabled = true
         }
     }
@@ -83,7 +68,9 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true
     }
-
+    
+    // MARK: IBActions
+    
     @IBAction func changedECTS(sender: UISlider) {
         ectsLabel.text = String(Int(sender.value))
     }
@@ -117,6 +104,34 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         if let success = delegate?.didPressSaveCourse(course!) where success {
             self.dismissViewControllerAnimated(false, completion: nil)
             print("Course saved")
+        }
+    }
+}
+
+extension AddCourseViewController: UITextFieldDelegate {
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkValidCourse()
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.enabled = false
+    }
+    
+    private func checkValidCourse() {
+        // Disable the Save button if the text field is empty.
+        if (nameField.text == "") {
+            saveButton.enabled = false
+        } else {
+            saveButton.enabled = true
         }
     }
 }

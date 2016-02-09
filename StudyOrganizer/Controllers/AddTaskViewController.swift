@@ -12,7 +12,7 @@ protocol SaveTaskDelegate: class {
     func didPressSaveTask(courses: [Course]) -> Bool
 }
 
-class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var coursePicker: UIPickerView!
@@ -32,6 +32,11 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.coursePicker.dataSource = self
         self.coursePicker.delegate = self
         
+        descriptionLabel.delegate = self
+        
+        //cannot save before adding text
+        saveButton.enabled = false
+        
         self.addBottomLineToTextField(descriptionLabel)
     }
     
@@ -45,7 +50,53 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true
     }
+    
+    @IBAction func cancelAddingPressed(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        descriptionLabel.text = ""
+        print("Adding cancelled")
+    }
+    
+    @IBAction func savebuttonPressed(sender: UIBarButtonItem) {
+        if !(descriptionLabel.text == "") {
+            let index = coursePicker.selectedRowInComponent(0)
+            let newTask = Task(descript: descriptionLabel.text!, done: false)
+            courses[notFinishedCourses[index]].todo.append(newTask)
+            if let success = delegate?.didPressSaveTask(courses!) where success {
+                self.dismissViewControllerAnimated(true, completion: nil)
+                print("Task saved")
+            }
+        }
+    }
+}
 
+extension AddTaskViewController: UITextFieldDelegate {
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        descriptionLabel.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkForValidTask()    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.enabled = false
+    }
+    
+    private func checkForValidTask() {
+        if(descriptionLabel.text == "") {
+            saveButton.enabled = false
+        } else {
+            saveButton.enabled = true
+        }
+    }
+}
+
+extension AddTaskViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: UIPIckerViewDelegate
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -69,40 +120,5 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return courses[notFinishedCourses[row]].name
-    }
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        descriptionLabel.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        saveButton.enabled = true
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        // Disable the Save button while editing.
-        saveButton.enabled = false
-    }
-    
-    @IBAction func cancelAddingPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        descriptionLabel.text = ""
-        print("Adding cancelled")
-    }
-    
-    @IBAction func savebuttonPressed(sender: UIBarButtonItem) {
-        if !(descriptionLabel.text == "") {
-            let index = coursePicker.selectedRowInComponent(0)
-            let newTask = Task(descript: descriptionLabel.text!, done: false)
-            courses[notFinishedCourses[index]].todo.append(newTask)
-            if let success = delegate?.didPressSaveTask(courses!) where success {
-                self.dismissViewControllerAnimated(true, completion: nil)
-                print("Task saved")
-            }
-        }
     }
 }

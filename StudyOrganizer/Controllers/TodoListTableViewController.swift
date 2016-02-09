@@ -20,7 +20,6 @@ class TodoListTableViewController: UITableViewController {
         
         setCourses()
         getAmountOfSections()
-        checkForAddingTasks()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -31,11 +30,14 @@ class TodoListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        // reload data before showing tab
+        // load data before showing tab
         setCourses()
-        checkForAddingTasks()
         numberOfSectionsInTableView(self.tableView)
         self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        checkForAddingTasks()
     }
     
     private func setCourses() {
@@ -59,13 +61,21 @@ class TodoListTableViewController: UITableViewController {
     }
     
     private func checkForAddingTasks() {
-        // only enable add tasks if there are open courses added
+        // only enable add tasks if there are open courses added and sent alert if not
         addButton.enabled = false
         for course in courses {
             if(!course.done) {
                 addButton.enabled = true
                 break
             }
+        }
+        if(!addButton.enabled) {
+            let alertController = UIAlertController(title: "No courses added yet.", message: "Please add a course before using the TODO Tab", preferredStyle: .Alert)
+            
+            let alertAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(alertAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
         }
     }
 
@@ -173,9 +183,9 @@ extension TodoListTableViewController: TodoItemCheckedDelegate {
             if(courseName == course.name) {
                 // find matching todo item in matching course
                 for todoItem in course.todo {
-                    if todoName == todoItem.descript {
+                    if(todoName == todoItem.descript) {
                         // update todo item
-                        if todoItem.done {
+                        if(todoItem.done) {
                             todoItem.done = false
                         } else {
                             todoItem.done = true
@@ -185,6 +195,7 @@ extension TodoListTableViewController: TodoItemCheckedDelegate {
                 }
             }
         }
+        saveCourses()
         return true
     }
 }

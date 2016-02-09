@@ -126,9 +126,9 @@
 		8F2E78471C69546200614EA3 /* TodoTab */ = {
 			isa = PBXGroup;
 			children = (
-				8F83F1321C693E19000365B2 /* TodoItemTableViewCell.swift */,
 				8F5773F01C5FE7A100B85393 /* TodoListTableViewController.swift */,
 				8F5773F21C5FF15500B85393 /* AddTaskViewController.swift */,
+				8F83F1321C693E19000365B2 /* TodoItemTableViewCell.swift */,
 			);
 			name = TodoTab;
 			sourceTree = "<group>";
@@ -136,11 +136,11 @@
 		8F2E78481C69549700614EA3 /* CoursesTab */ = {
 			isa = PBXGroup;
 			children = (
-				8FD377311C56B8D600811189 /* AddCourseViewController.swift */,
 				8FE573CC1C58F08900A04C52 /* CoursesTableViewController.swift */,
+				8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */,
+				8FD377311C56B8D600811189 /* AddCourseViewController.swift */,
 				8FFEA1BA1C679A0600E4F697 /* TodoTableViewCell.swift */,
 				8FBF4AA51C6514C200317C17 /* CoursesTableViewCell.swift */,
-				8F5773EE1C5FCF4F00B85393 /* CourseDetailViewController.swift */,
 			);
 			name = CoursesTab;
 			sourceTree = "<group>";

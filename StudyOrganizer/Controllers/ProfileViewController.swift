@@ -12,8 +12,7 @@ protocol SaveProfileDelegate: class {
     func didPressSaveProfile(user: User) -> Bool
 }
 
-class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var universityField: UITextField!
@@ -42,33 +41,8 @@ UINavigationControllerDelegate {
         fieldField.text = user?.fieldOfStudies
         userImageView.image = user?.image
         
+        // cannot save before adding information
         checkValidProfile()
-    }
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        saveButton.enabled = true
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        // Disable the Save button while editing.
-        saveButton.enabled = false
-    }
-    
-    private func checkValidProfile() {
-        // Disable the Save button if the text field is empty.
-        if (nameField.text == "" || universityField.text == "" || fieldField.text == "") {
-            saveButton.enabled = false
-        } else {
-            saveButton.enabled = true
-        }
     }
     
     private func addBottomLineToTextField(textField : UITextField) {
@@ -82,7 +56,7 @@ UINavigationControllerDelegate {
         textField.layer.masksToBounds = true
     }
     
-    // MARK: Actions
+    // MARK: IBActions
     
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
         nameField.resignFirstResponder()
@@ -124,18 +98,51 @@ UINavigationControllerDelegate {
         }
     }
     
+    
+}
+
+extension ProfileViewController: UITextFieldDelegate {
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        saveButton.enabled = true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.enabled = false
+    }
+    
+    private func checkValidProfile() {
+        // Disable the Save button if the text field is empty.
+        if (nameField.text == "" || universityField.text == "" || fieldField.text == "") {
+            saveButton.enabled = false
+        } else {
+            saveButton.enabled = true
+        }
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     // MARK: UIImagePickerControllerDelegate
-        
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print("Cancelled")
         // Dismiss the picker if the user canceled.
         dismissViewControllerAnimated(true, completion: nil)
     }
-        
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // The info dictionary contains multiple representations of the image, and this uses the original.
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-            
+        
         // Set userImageView to display the selected image.
         userImageView.contentMode = .ScaleAspectFit
         user?.image = selectedImage

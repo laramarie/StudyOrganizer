@@ -107,7 +107,7 @@ class CoursesTableViewController: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             if(actualIndex.count > 0 && courses[indexPath.row] == courses[actualIndex[indexPath.row]]) {
-                courses.removeAtIndex(indexPath.row)
+                courses.removeAtIndex(actualIndex[indexPath.row])
                 actualIndex.removeAtIndex(indexPath.row)
             } else {
                 courses.removeAtIndex(oldIndex[indexPath.row])
