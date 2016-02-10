@@ -36,13 +36,17 @@ class ProfileViewController: UIViewController {
         self.addBottomLineToTextField(universityField)
         self.addBottomLineToTextField(fieldField)
         
+        initializeElements()
+        
+        // cannot save before adding information
+        checkValidProfile()
+    }
+    
+    private func initializeElements() {
         nameField.text = user?.name
         universityField.text = user?.university
         fieldField.text = user?.fieldOfStudies
         userImageView.image = user?.image
-        
-        // cannot save before adding information
-        checkValidProfile()
     }
     
     private func addBottomLineToTextField(textField : UITextField) {

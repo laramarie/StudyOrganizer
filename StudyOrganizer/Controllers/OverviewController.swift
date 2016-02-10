@@ -20,6 +20,11 @@ class OverviewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializeData()
+        updateView()
+    }
+    
+    private func initializeData() {
         // Load any saved meals, otherwise load sample data.
         if let savedUser = loadUser() {
             user = savedUser
@@ -27,8 +32,6 @@ class OverviewController: UIViewController {
             // Load the sample data.
             loadSampleUser()
         }
-        
-        updateView()
     }
     
     private func updateView() {
